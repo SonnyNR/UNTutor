@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Collection;
@@ -18,30 +17,25 @@ import java.util.Collection;
 public class User implements UserDetails
 {
     private String name;
-
-    private String address;
-    private String city;
-    private String phone;
+    private String document;
 
     @Id
     private String email;
 
     private String password;
 
-    @Lob
-    private byte[] image;
+    private String token;
 
     public User() {
 
     }
 
-    public User(String name, String address, String city, String phone, String email, String password) {
-        this.name = name;
-        this.address = address;
-        this.city = city;
-        this.phone = phone;
-        this.email = email;
+    public User(String name, String document, String email, String password, String token) {
+        this.name     = name;
+        this.document = document;
+        this.email    = email;
         this.password = password;
+        this.token    = token;
     }
 
     @Override
@@ -69,11 +63,6 @@ public class User implements UserDetails
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public String getImageBase64()
-    {
-        return image == null ?"":Base64.getEncoder().encodeToString(image);
     }
 
 }

@@ -8,7 +8,7 @@ public class RegistrationTutorForm extends RegistrationUserForm {
     public Tutor toTutor(PasswordEncoder encoder)
     {
         Tutor tutor =  new Tutor
-                (getName(), getAddress(), getCity(), getPhone(), getEmail(), encoder.encode(getPassword()));
+                (getName(), getDocument(), getEmail(), encoder.encode(getPassword()), getToken());
 
         return tutor;
     }
