@@ -9,58 +9,64 @@ import InputSchool from './InputSchool';
 function SigninPopup(props) {
     const [btnLoginPopup, setBtnLoginPopup] = useState(false);
 
-    const getName = (event)=>{
-        const userName = event.target.value;
-        alert(userName); 
-
+    const [nombre, setNombre] = useState('');
+    const getNombre = (event)=>{
+        const userNombre = event.target.value;
+        //console.log(userNombre); 
+        setNombre(userNombre);
     };
 
-    const getId = (event)=>{
-        const userId = event.target.value;
-        console.log(userId); 
+    const [cedula, setCedula] = useState('');
+    const getCedula = (event)=>{
+        const userCedula = event.target.value;
+        //console.log(userCedula);
+        setCedula(userCedula); 
     };
+
+    const [email, setEmail] = useState('');
     const getEmail = (event)=>{
         const userEmail = event.target.value;
-        console.log(userEmail); 
+        //console.log(userEmail);
+        setEmail(userEmail); 
     };
 
-    const getPass = (event)=>{
-        const userPass = event.target.value;
-        console.log(userPass); 
+    const [contra, setContra] = useState('');
+    const getContra = (event)=>{
+        const userContra = event.target.value;
+        //console.log(userContra);
+        setContra(userContra);
+
     };
 
-    const isStudent = true;
+    const [rol, setRol] = useState('');
     const getRol = (event)=>{
-        var isS;
-        var userSelect = "Estudiante"
-        userSelect = event.target.value;
-        if (userSelect==="Estudiante"){
-            isS = true;
-        }else{
-            isS = false;
-        }
-        console.log(userSelect);
-        isStudent = isS;
-        console.log(isStudent);
+        const userRol = event.target.value;
+        //console.log(userRol);
+        setRol(userRol); 
     };
-    
 
+    function esEst(){
+        if(rol==="Estudiante"){
+            return true
+        }else{return false}
+    }
   return (props.trigger) ? (
     
     <div className='signin-popup'>
         
         <div className='signin-popup-inner'>
             {props.children}
-            <input type="text" onChange={getName} placeholder="nombres y apellidos"/>
-            <input type="text" onChange={getId} placeholder="cédula"/>
+            <input type="text" onChange={getNombre} placeholder="nombres y apellidos"/>
+            <input type="text" onChange={getCedula} placeholder="cédula"/>
             <input type="text" onChange={getEmail} placeholder="correo electrónico"/>
-            <input type="password" onChange={getPass} placeholder="contraseña"/>
+            <input type="password" onChange={getContra} placeholder="contraseña"/>
             
-            <select className='selection' onChange={getRol}>
+            <select className='selection' id='selectionid' onChange={getRol}>
+                <option value="">Seleccionar Rol</option>
                 <option value="Estudiante">Estudiante</option>
                 <option value="Tutor">Tutor</option>
             </select>
-            <InputSchool trigger={true}>
+            <InputSchool trigger={esEst()}>
                 
             </InputSchool>
 
