@@ -1,27 +1,40 @@
 package untutor.domain.user;
 
 import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.Entity;
-import java.util.Arrays;
-import java.util.Collection;
+import javax.persistence.Id;
 
 @Data
 @Entity
-public class Student extends User {
+public class Student{
+
+    /*
+     * crea los siguientes campos:
+     * -correo string
+     * -cedula string
+     * -nombre string
+     * -contraseña string
+     * -TOKEN string
+     */
+
+    @Id
+    private String correo;
+    private String cedula;
+    private String nombre;
+    private String clave;
+    private String token;
 
     public Student() {
     }
 
-    public Student(String name, String document, String email, String password, String token) {
-        super(name, document, email, password, token);
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_STUDENT"));
+    public Student(String correo,
+            String cedula, String nombre,
+            String pass) {
+        this.correo = correo;
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.clave = pass;
     }
 
 }
