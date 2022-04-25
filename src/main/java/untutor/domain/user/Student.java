@@ -2,12 +2,15 @@ package untutor.domain.user;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.*;
 
 @Data
 @Entity
-public class Student{
+@Table(name = "students", uniqueConstraints = @UniqueConstraint(columnNames = { "correo", "cedula" }))
+public class Student {
 
     /*
      * crea los siguientes campos:
@@ -25,16 +28,20 @@ public class Student{
     private String clave;
     private String token;
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+
     public Student() {
     }
 
     public Student(String correo,
-            String cedula, String nombre,
-            String pass) {
+            String nombre, String cedula,
+            String clave) {
         this.correo = correo;
         this.cedula = cedula;
         this.nombre = nombre;
-        this.clave = pass;
+        this.clave = clave;
     }
 
 }
