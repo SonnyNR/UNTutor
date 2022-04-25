@@ -1,6 +1,8 @@
 package untutor.domain.form;
 
 import lombok.Data;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import untutor.domain.user.User;
 
 @Data
 public class RegistrationUserForm {
@@ -9,6 +11,13 @@ public class RegistrationUserForm {
     private String document;
     private String email;
     private String password;
-    private String token;
+
+    public User toUser(PasswordEncoder encoder)
+    {
+        User user =  new User
+                (getName(), getDocument(), getEmail(), encoder.encode(getPassword()));
+
+        return user;
+    }
 
 }

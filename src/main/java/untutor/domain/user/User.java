@@ -24,18 +24,15 @@ public class User implements UserDetails
 
     private String password;
 
-    private String token;
-
     public User() {
 
     }
 
-    public User(String name, String document, String email, String password, String token) {
+    public User(String name, String document, String email, String password) {
         this.name     = name;
         this.document = document;
         this.email    = email;
         this.password = password;
-        this.token    = token;
     }
 
     @Override

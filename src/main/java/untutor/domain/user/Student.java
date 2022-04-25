@@ -15,8 +15,8 @@ public class Student extends User {
     public Student() {
     }
 
-    public Student(String name, String document, String email, String password, String token) {
-        super(name, document, email, password, token);
+    public Student(String name, String document, String email, String password) {
+        super(name, document, email, password);
     }
 
     @Override
