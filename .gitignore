@@ -31,3 +31,28 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+./ui_untutor/node_modules
+./ui_untutor/.pnp
+./ui_untutor/.pnp.js
+
+# testing
+./ui_untutor/coverage
+
+# production
+./ui_untutor/build
+
+# misc
+./ui_untutor/.DS_Store
+./ui_untutor/.env.local
+./ui_untutor/.env.development.local
+./ui_untutor/.env.test.local
+./ui_untutor/.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
