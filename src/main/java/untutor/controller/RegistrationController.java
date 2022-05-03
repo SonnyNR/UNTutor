@@ -1,6 +1,7 @@
 package untutor.controller;
 
-import untutor.domain.form.RegistrationUserForm;
+import untutor.domain.form.RegistrationStudentForm;
+import untutor.domain.form.RegistrationTutorForm;
 import untutor.domain.user.User;
 import untutor.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/register")
-@CrossOrigin(origins="*")
+@RequestMapping(path = "api/register")
+@CrossOrigin("*")
 public class RegistrationController {
 
     private UserService userService;
@@ -23,9 +24,15 @@ public class RegistrationController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PostMapping(consumes = "application/json")
+    @PostMapping(path = "/student", consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public User processRegistrationUser(@RequestBody RegistrationUserForm registrationUserForm) {
-        return userService.save(registrationUserForm.toUser(passwordEncoder));
+    public User processRegistrationStudent(@RequestBody RegistrationStudentForm registrationStudentForm) {
+        return userService.save(registrationStudentForm.toStudent(passwordEncoder));
+    }
+
+    @PostMapping(path = "/tutor", consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
+    public User processRegistrationTutor(@RequestBody RegistrationTutorForm registrationTutorForm) {
+        return userService.save(registrationTutorForm.toTutor(passwordEncoder));
     }
 }

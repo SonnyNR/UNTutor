@@ -11,26 +11,24 @@ import javax.persistence.Id;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Collection;
+import java.util.Date;
 
 @Data
 @Entity
 public class User implements UserDetails
 {
     private String name;
-    private String document;
 
     @Id
     private String email;
-
     private String password;
 
     public User() {
 
     }
 
-    public User(String name, String document, String email, String password) {
+    public User(String name, String email, String password) {
         this.name     = name;
-        this.document = document;
         this.email    = email;
         this.password = password;
     }

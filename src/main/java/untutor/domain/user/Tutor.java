@@ -12,11 +12,12 @@ import java.util.Collection;
 @Entity
 public class Tutor extends User {
 
+
     public Tutor() {
     }
 
-    public Tutor(String name, String document, String email, String password) {
-        super(name, document, email, password);
+    public Tutor(String name, String email, String password) {
+        super(name, email, password);
     }
 
     @Override
