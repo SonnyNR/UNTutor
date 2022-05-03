@@ -8,7 +8,7 @@ public class RegistrationStudentForm extends RegistrationUserForm {
     public Student toStudent(PasswordEncoder encoder)
     {
         Student student =  new Student
-                (getName(), getEmail(), encoder.encode(getPassword()));
+                (getName(), getPhone(), getEmail(), encoder.encode(getPassword()));
 
         return student;
     }

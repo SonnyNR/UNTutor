@@ -11,11 +11,12 @@ public class RegistrationUserForm {
     private String document;
     private String email;
     private String password;
+    private String phone;
 
     public User toUser(PasswordEncoder encoder)
     {
         User user =  new User
-                (getName(), getEmail(), encoder.encode(getPassword()));
+                (getName(), getPhone(), getEmail(), encoder.encode(getPassword()));
 
         return user;
     }

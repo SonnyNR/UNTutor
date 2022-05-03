@@ -8,7 +8,7 @@ public class RegistrationAdministratorForm extends RegistrationUserForm {
     public Administrator toAdministrator(PasswordEncoder encoder)
     {
         Administrator administrator =  new Administrator
-                (getName(), getEmail(), encoder.encode(getPassword()));
+                (getName(), getPhone(), getEmail(), encoder.encode(getPassword()));
 
         return administrator;
     }

@@ -20,6 +20,7 @@ public class User implements UserDetails
     private String name;
 
     @Id
+    private String phone;
     private String email;
     private String password;
 
@@ -27,10 +28,11 @@ public class User implements UserDetails
 
     }
 
-    public User(String name, String email, String password) {
+    public User(String name, String phone, String email, String password) {
         this.name     = name;
         this.email    = email;
         this.password = password;
+        this.phone    = phone;
     }
 
     @Override

@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Configuration
 @EnableWebSecurity
@@ -34,18 +36,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.
-                authorizeRequests().
-                antMatchers("/welcome").
-                hasAnyRole("STUDENT", "ADMINISTRATOR", "TUTOR").
-                antMatchers("/users").
-                hasRole("ADMINISTRATOR").
-                and().
-                formLogin().
-                loginPage("/login").
-                defaultSuccessUrl("/",true).
-                and().
-                logout().
-                logoutSuccessUrl("/");
+        http.csrf().disable();
+
+        http.authorizeRequests()
+                .anyRequest().permitAll()
+                .and().formLogin().loginPage("/login").loginProcessingUrl("/api/login").defaultSuccessUrl("/api/verify_login/success", true).failureUrl("/api/verify_login/err").permitAll()
+                .and().logout().invalidateHttpSession(true).clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutUrl("/api/logout").logoutSuccessUrl("http://localhost:3000/").permitAll();
+
     }
 }

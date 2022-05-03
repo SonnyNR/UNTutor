@@ -15,8 +15,8 @@ public class Administrator extends User {
     public Administrator() {
     }
 
-    public Administrator(String name, String email, String password) {
-        super(name, email, password);
+    public Administrator(String name, String phone, String email, String password) {
+        super(name, phone, email, password);
     }
 
     @Override
