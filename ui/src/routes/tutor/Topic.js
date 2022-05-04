@@ -46,6 +46,8 @@ export default class Topic extends Component {
                     ? <PassTopic handleClickTopicRequest={this.handleClickTopicRequest}/>
                     : <FormTopicRequest handleSubmitTopicRequest={this.handleSubmitTopicRequest}/>
                 }
+                <TopicRequestList />
+
             </div>
         );
     }
@@ -126,6 +128,15 @@ class FormTopicRequest extends Component {
             </form>
         );
     }
+}
+
+const TopicRequestList = function ({topicRequestList}) {
+    return (
+        <div>
+            <h3>Solicitudes temáticas</h3>
+
+        </div>
+    );
 }
 
 
