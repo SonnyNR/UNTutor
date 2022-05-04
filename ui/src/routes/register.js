@@ -74,6 +74,7 @@ class Form extends React.Component {
                             <select name="role" onChange={this.handleInputChange}>
                                 <option value="student">Estudiante</option>
                                 <option value="tutor">Tutor</option>
+                                <option value="administrator">Administrador</option>
                             </select>
                         </td>
                     </tr>

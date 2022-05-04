@@ -13,6 +13,7 @@ import Login from "./routes/login";
 import App from "./App";
 import Student from "./routes/student/student";
 import Tutor from "./routes/tutor/tutor";
+import Administrator from "./routes/administrator/Administrator";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,6 +26,7 @@ root.render(
           <Route path="/tutor" element={<Tutor />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/administrator" element={<Administrator />} />
         </Routes>
       </BrowserRouter>
   </React.StrictMode>
