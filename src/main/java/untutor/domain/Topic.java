@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Data
@@ -11,8 +12,9 @@ import javax.persistence.Id;
 public class Topic {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String name;
     private KnowledgeArea knowledgeArea;
 
@@ -21,7 +23,7 @@ public class Topic {
     }
 
     public enum KnowledgeArea {
-        MATH, SCIENCE, HISTORY, ARTH
+        MATH, SCIENCE, HISTORY, ART
     }
 
 

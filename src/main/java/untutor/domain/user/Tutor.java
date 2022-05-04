@@ -5,9 +5,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import untutor.domain.Topic;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.lang.annotation.Target;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -16,12 +15,13 @@ import java.util.List;
 @Entity
 public class Tutor extends User {
 
-    /*
-    @ManyToMany
+
+    @ManyToMany(targetEntity = Topic.class)
     private List<Topic> topics;
-    @ManyToOne
+
+    @OneToMany(targetEntity = TopicRequest.class)
     private List<TopicRequest> topicRequests;
-    */
+
 
     public Tutor() {
     }
