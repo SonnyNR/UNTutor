@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import NavBar from '../components/NavBar';
 import PersonalData from "./PersonalData";
+import Topic from "./Topic";
 
 class Tutor extends Component {
 
@@ -38,8 +39,7 @@ class Tutor extends Component {
           email={this.state.email}
           phone={this.state.phone}
         />
-        <h3>Temáticas aprobadas</h3>
-        <h3>Temáticas en proceso</h3>
+        <Topic />
         <h3>Sesiones programadas</h3>
         <h3>Exámenes programados</h3>
       </main>
