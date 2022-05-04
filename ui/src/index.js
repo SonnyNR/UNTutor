@@ -11,8 +11,8 @@ import {
 import Register from "./routes/register";
 import Login from "./routes/login";
 import App from "./App";
-import Student from "./routes/student";
-import Tutor from "./routes/tutor";
+import Student from "./routes/student/student";
+import Tutor from "./routes/tutor/tutor";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
