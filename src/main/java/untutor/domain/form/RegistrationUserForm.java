@@ -8,15 +8,13 @@ import untutor.domain.user.User;
 public class RegistrationUserForm {
 
     private String name;
-    private String document;
     private String email;
     private String password;
-    private String phone;
 
     public User toUser(PasswordEncoder encoder)
     {
         User user =  new User
-                (getName(), getPhone(), getEmail(), encoder.encode(getPassword()));
+                ( getEmail(), getName(), encoder.encode(getPassword()));
 
         return user;
     }

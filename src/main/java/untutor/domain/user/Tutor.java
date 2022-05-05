@@ -26,8 +26,8 @@ public class Tutor extends User {
     public Tutor() {
     }
 
-    public Tutor(String name, String phone, String email, String password) {
-        super(name, phone, email, password);
+    public Tutor(String email, String name,  String password) {
+        super( email,name, password);
     }
 
     @Override

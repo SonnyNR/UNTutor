@@ -9,30 +9,23 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Arrays;
-import java.util.Base64;
 import java.util.Collection;
-import java.util.Date;
 
 @Data
 @Entity
 public class User implements UserDetails
 {
-    private String name;
-
     @Id
-    private String phone;
     private String email;
+    private String name;
     private String password;
 
-    public User() {
+    public User() {}
 
-    }
-
-    public User(String name, String phone, String email, String password) {
+    public User(String email, String name,   String password) {
         this.name     = name;
         this.email    = email;
         this.password = password;
-        this.phone    = phone;
     }
 
     @Override
