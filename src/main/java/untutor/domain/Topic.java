@@ -20,8 +20,9 @@ public class Topic {
 
     }
 
+    
     public enum KnowledgeArea {
-        MATH, SCIENCE, HISTORY, ARTH
+        MATH, HISTORY, ENGLISH, GEOGRAPHY, LITERATURE, PHYSICS, CHEMISTRY, BIOLOGY
     }
 
 
