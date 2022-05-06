@@ -29,7 +29,6 @@ class L extends Component {
   render() {
     return (
       <div>
-        <NavBar />
         <Login log={this.state.logged}
           handleSubmit={this.handleSubmit}/>
       </div>
@@ -72,8 +71,6 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <main>
-          <h2>Login</h2>
           <form onSubmit={e => this.props.handleSubmit(e, this.state)}>
               <table>
                   <tr>
@@ -92,7 +89,6 @@ class LoginForm extends Component {
                   </tr>
                   </table>
               </form>
-      </main>
     );
 
   }

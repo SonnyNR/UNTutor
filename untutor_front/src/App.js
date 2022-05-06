@@ -26,7 +26,7 @@ function App() {
         <nav class="sub-nav">
           <button class="login" onClick={()=> setBtnLoginPopup(true)}>Inicia Sesión</button>
           <button class="signin" onClick={()=> setBtnSignPopup(true)}><a class="signin-text">Regístrate</a></button>
-          
+           
         </nav> 
       </header>
       <LoginPopup trigger={btnLoginPopup} >

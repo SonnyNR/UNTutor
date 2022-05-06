@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import axios from 'axios';
 import NavBar from './components/NavBar';
+import './components/register.css';
 
 class Form extends React.Component {
 
@@ -47,11 +48,9 @@ class Form extends React.Component {
 
     render() {
       return (
-        <main>
-        <NavBar />
-            <h2>Registro</h2>
             <form onSubmit={this.handleSubmit}>
                 <table>
+                <div className='signin-popup-inner'>
                     <tr>
                         <td><label htmlFor="name">Nombre: </label></td>
                         <td><input type="text" name="name" onChange={this.handleInputChange} value={this.state.name}/></td>
@@ -81,9 +80,9 @@ class Form extends React.Component {
                     <tr>
                         <td> <input type="submit" value="Registrar"/> </td>
                     </tr>
+                    </div>
                     </table>
                 </form>
-        </main>
       );
     }
   }
