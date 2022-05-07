@@ -1,79 +1,5 @@
-:root {
-    --primary: #141414;
-    --light: #F3F3F3;
-    --dark: 	#686868;
-    --hover: #afafaf;
-  }
-  
-  body {
-    width: 100vw;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-color: var(--primary);
-    color: var(--light);
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
-    line-height: 1.4;
-  }
-  
-  img {
-    max-width: 100%;
-  }
-  
-  h1 {
-    padding-top: 60px;  
-  }
-  
-  .wrapper {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* HEADER */
-  header {
-    padding: 15px 20px 0 20px;
-    position: fixed;
-    top: 0;
-    display: grid;  
-    grid-gap:5px;
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-     "ny mn mn sb . . . "; 
-    background-color: var(--primary);
-    width: 100%;
-    margin-bottom: 0px;  
-  }
-  
-  .untutorlogo {
-    grid-area: ny;
-    object-fit: cover;
-    width: 300px;
-    max-height: 100%;
-    
-    padding-left: 30px;
-    padding-bottom: 15px;  
-  }
-  
-  .untutorlogo img {  
-    height: 35px;     
-  }
-  
-  .main-nav {
-    grid-area: mn;
-    text-align: center;
-    padding-right: 200px;
-  }
-  .main-nav a {
-    color: var(--light);
-    text-decoration: none;
-    margin: 5px;
-  }
-  .main-nav a:hover {
-    color: var(--dark);
-  }
-  
-  .sub-nav {
+
+.sub-nav {
     grid-area: sb;
     padding: 5px;
   }
@@ -92,9 +18,9 @@
     background-color: #00000000;
     text-align: center;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     right: 130px;
-    height: 3%;
+    height: 4%;
   }
   
   .login:hover {
@@ -105,57 +31,79 @@
   .signin{
     position: fixed;
     border: none;
-    height: 3%;
+    height: 4%;
     color: var(--light);
     text-decoration: none;
     background: #94b43b;
     font-weight: bold;
     text-align: center;
     right: 15px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .signin:hover{
     background: #556621;
   }
   
-  .x2-btn{
-    float: right;
+  .dropdown {
     position: relative;
-    color:#686868
+    display: inline-block;
   }
   
-  
-  
-  .main-container {
-    padding: 50px;
-    padding-top: 30px ;
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.486);
+    min-width: 130px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    right: 15px;
+    top: 25px;
+    z-index: 1;
+    line-height: 30px;
   }
   
-  .box {
-    display: grid;
-    grid-gap: 0px;
-    grid-template-columns: repeat(9, minmax(12%, 1fr));
-    grid-template-rows: 120px 1fr 1fr 61px;
+  .dropdown:hover .dropdown-content {
+    display: block;
   }
-  
-  .box a {
-    transition: transform .3s;  
+
+  .userSVG{
+    width: 80px;
+    height: 100%;
+    border: none;
+    background: none;
   }
-  
-  .box a:hover {
-    transition: transform .3s;
-    -ms-transform: scale(1.1);
-    -webkit-transform: scale(1.1);  
-    transform: scale(1.1);
+
+  .userSVG-img{
+    position: relative;
+    filter: invert(100%);
+    height: 25px;
+    width: 25px;
   }
-  
-  .box img {
-    border-radius: 2px;
+  .downArrow-img{
+    position: relative;
+    height: 20px;
+    width: 20px;
+    filter: invert(100%);
+    bottom: 5px;
   }
-  
-  footer {
-    padding: 20px;
-    text-align: center;
-    color: var(--dark);
-    margin: 10px;
+
+  .line{
+    height: 1px;
+    background: rgb(63, 63, 63);
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .cerrar-btn{
+    position: relative;
+    color: white;
+    font-size: 16px;
+    border: none;
+    background: none;
+    right: 5px;
   }

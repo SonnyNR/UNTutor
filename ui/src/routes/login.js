@@ -1,7 +1,5 @@
 import React, { Component} from 'react';
-import axios from 'axios';
 import { Navigate } from "react-router-dom";
-import NavBar from './components/NavBar';
 
 
 class L extends Component {
@@ -34,6 +32,10 @@ class L extends Component {
       </div>
     );
   }
+}
+
+function refreshPage() {
+  window.location.reload(false);
 }
 
 const Login = function({log, handleSubmit}) {
@@ -84,10 +86,8 @@ class LoginForm extends Component {
                   </tr>
 
                   <tr><br/></tr>
-                  <tr>
-                      <td> <input type="submit" value="Login"/> </td>
-                  </tr>
                   </table>
+                  <button type="submit" value="Login" onClick={refreshPage} className='login-btn'>Inicia Sesión</button>
               </form>
     );
 

@@ -4,12 +4,8 @@
     width: 100%;
     max-width: 300px;
     color: black;
-    background-color: #94b43b;
+    background-color: #aacc42;
 }
-.login-popup input {
-    background: #f2f2f2;
-    font-size: 14px;
-  }
 
 .login-popup .message {
 margin: 15px 0 0;

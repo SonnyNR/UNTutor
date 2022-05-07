@@ -1,0 +1,54 @@
+
+img {
+    max-width: 100%;
+  }
+  
+  h1 {
+    padding-top: 60px;  
+  }
+  
+  .wrapper {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* HEADER */
+  header {
+    padding: 15px 20px 0 20px;
+    position: fixed;
+    top: 0;
+    display: grid;  
+    grid-gap:5px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+     "ny mn mn sb . . . "; 
+    background-color: var(--primary);
+    width: 100%;
+    margin-bottom: 0px;  
+  }
+  
+  .untutorlogo {
+    grid-area: ny;
+    object-fit: cover;
+    width: 300px;
+    max-height: 100%;
+    
+    padding-left: 30px;
+    padding-bottom: 15px;  
+  }
+  
+  .untutorlogo img {  
+    height: 35px;     
+  }
+    
+  .mainimg{
+      padding: 100px;
+      height: 700px;
+  }
+    
+  footer {
+      padding: 20px;
+      text-align: center;
+      color: var(--dark);
+      margin: 10px;
+  }

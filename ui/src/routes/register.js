@@ -70,16 +70,16 @@ class Form extends React.Component {
                     <tr>
                         <td><label htmlFor="role">Rol: </label></td>
                         <td>
-                            <select name="role" onChange={this.handleInputChange}>
+                            <select className='selectRole' name="role" onChange={this.handleInputChange}>
+                                <option disabled selected value>-- seleccione una opción --</option>
                                 <option value="student">Estudiante</option>
                                 <option value="tutor">Tutor</option>
                             </select>
                         </td>
                     </tr>
                     <tr><br/></tr>
-                    <tr>
-                        <td> <input type="submit" value="Registrar"/> </td>
-                    </tr>
+                    
+                    <button type="submit" value="Registrar" className='register-btn'>Registrar</button>
                     </div>
                     </table>
                 </form>

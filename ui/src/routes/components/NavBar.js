@@ -4,8 +4,9 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SigninPopup from './SigninPopup';
 import LoginPopup from './LoginPopup';
-import logo from './logo.svg';
-import './NavBar.css'
+import './NavBar.css';
+import userSVG from './img/user-solid.svg';
+import downArrow from './img/sort-down-solid.svg';
 
 const NavBar = ({role}) => {
   
@@ -19,56 +20,40 @@ const NavBarNoUser = function() {
   const [btnLoginPopup, setBtnLoginPopup] = useState(false);
   const [btnSignPopup, setBtnSignPopup] = useState(false);
   return (
-    <body>
-      <div class="wrapper">
-      <header>
-        <div class="untutorlogo">
-          <a id="logo" href="#"><img src={logo} className="App-logo" alt="logo" /></a>
-        </div> 
-      
-        <nav class="main-nav">                   
-        </nav>
-
-        <nav class="sub-nav">
+        <div>
           <button class="login" onClick={()=> setBtnLoginPopup(true)}>Inicia Sesión</button>
           <button class="signin" onClick={()=> setBtnSignPopup(true)}><a class="signin-text">Regístrate</a></button>
   
-        </nav> 
-      </header>
-      <LoginPopup trigger={btnLoginPopup} >
-        <a className="x2-btn" onClick={()=> setBtnLoginPopup(false)}><FontAwesomeIcon icon={faX} /></a>
-        <h3>Inicia Sesión en Untutor</h3>
-      </LoginPopup>
+        <LoginPopup trigger={btnLoginPopup} >
+          <a className="x2-btn" onClick={()=> setBtnLoginPopup(false)}><FontAwesomeIcon icon={faX} /></a>
+          <h3>Inicia Sesión en Untutor</h3>
+        </LoginPopup>
 
-      <SigninPopup trigger={btnSignPopup}>
-      <a className="x2-btn" onClick={()=> setBtnSignPopup(false)}><FontAwesomeIcon icon={faX} /></a>
-        <h3>Únete ahora</h3>
-      </SigninPopup>
-      
-      <section class="main-container" >
-      <div class="location" id="home">
-          <h1 id="home">Aún no hay cursos disponibles</h1>
-          <div class="box">
-          </div>
-      </div>
-      </section>
-
-      </div>
-    </body>
+        <SigninPopup trigger={btnSignPopup}>
+          <a className="x2-btn" onClick={()=> setBtnSignPopup(false)}><FontAwesomeIcon icon={faX} /></a>
+          <h3>Únete ahora</h3>
+        </SigninPopup>
+        </div>
   );
 }
 
 const NavBarUser = function({role}) {
   return (
     <nav>
-      <Link to={'/' + role}>Mi Area</Link>
-      <br/>
-      <Link to='/'>Inicio</Link>
-      <br/>
-      <br/>
-      <form method='post' action='/api/logout'>
-        <input type='submit' value='Cerrar sesión'/>
-      </form>
+      <div class="dropdown">
+        <button className="userSVG"><img src={userSVG} className="userSVG-img" /><img src={downArrow} className="downArrow-img" /></button>
+        <div className="dropdown-content">
+          <Link to={'/' + role}><a className="miArea">Mi Area</a></Link>
+          <br></br>
+          <Link to='/'><a className="inicio">inicio</a></Link>
+          <div className="line"></div>
+          <form className="cerrar" method='post' action='/api/logout'>
+            <input className="cerrar-btn" type='submit' value='Cerrar sesión'/>
+          </form>
+        </div>
+      </div>
+      
+      
     </nav>
   );
 }
