@@ -5,8 +5,8 @@ import LoginPopup from './LoginPopup'
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import Register from '../register';
-import Login from '../login';
+import Register from '../Register';
+import Login from '../Login';
 
 function SigninPopup(props) {
     const [btnLoginPopup, setBtnLoginPopup] = useState(false);

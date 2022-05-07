@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
-import Login from '../login';
+import Login from '../Login';
 import './LoginPopup.css'
 import SigninPopup from './SigninPopup';
 import { faX } from "@fortawesome/free-solid-svg-icons";

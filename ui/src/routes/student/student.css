@@ -1,9 +1,9 @@
 
-img {
+  img {
     max-width: 100%;
   }
   
-  h1 {
+  h2 {
     padding-top: 60px;  
   }
   
@@ -44,6 +44,10 @@ img {
   .mainimg{
       padding: 100px;
       height: 700px;
+  }
+  
+  .area-text{
+    padding: 50px;
   }
     
   footer {
