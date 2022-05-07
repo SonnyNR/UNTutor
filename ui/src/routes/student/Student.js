@@ -8,21 +8,12 @@ class Student extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      name: null,
-      email: null,
-      phone: null,
-    }
+      this.state = {
+          name: "",
+          email: "",
+          phone: "",
+      }
 
-    this.setData = this.setData.bind(this);
-  }
-
-  setData({name, email, phone}) {
-    this.setState({
-      name,
-      email,
-      phone,
-    })
   }
 
   render() {
@@ -43,7 +34,12 @@ class Student extends Component {
   }
 
   componentDidMount() {
-    window.client.getUser('student', this.setData);
+      let user = JSON.parse(localStorage.user);
+      this.setState({
+          name: user.name,
+          email: user.email,
+          phone: user.phone,
+      })
   }
 }
 

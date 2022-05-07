@@ -1,5 +1,4 @@
 import React, { Component} from 'react';
-import axios from 'axios';
 import { Navigate } from "react-router-dom";
 import NavBar from './components/NavBar';
 
@@ -9,16 +8,26 @@ class L extends Component {
     super(props);
 
     this.state = {
-      logged: false
+      logged: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.verifyLogin = this.verifyLogin.bind(this);
+    this.setUser = this.setUser.bind(this);
+  }
+
+  setUser(result) {
+      localStorage.setItem("role", result.role);
+      localStorage.setItem("user", JSON.stringify(result.user));
   }
 
   verifyLogin(login) {
-    if (login)
-      this.setState({logged: login});
+
+    if (login) {
+        this.setState({logged: login});
+        window.client.getAccount(this.setUser);
+    }
+
   }
 
   handleSubmit(event, {username, password}) {
@@ -30,18 +39,18 @@ class L extends Component {
     return (
       <div>
         <NavBar />
-        <Login log={this.state.logged}
-          handleSubmit={this.handleSubmit}/>
+        <Login logged={this.state.logged}
+               handleSubmit={this.handleSubmit}/>
       </div>
     );
   }
 }
 
-const Login = function({log, handleSubmit}) {
+const Login = function({logged, handleSubmit}) {
 
   return (
     <div>
-      {log && <Navigate replace to="/" />}
+      {logged && <Navigate replace to="/" />}
       <LoginForm handleSubmit={handleSubmit}/>
     </div>
   );

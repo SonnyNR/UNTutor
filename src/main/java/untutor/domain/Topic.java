@@ -2,10 +2,7 @@ package untutor.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -16,6 +13,7 @@ public class Topic {
     private Long id;
 
     private String name;
+    @Enumerated(EnumType.STRING)
     private KnowledgeArea knowledgeArea;
 
     public Topic() {
@@ -25,8 +23,5 @@ public class Topic {
     public enum KnowledgeArea {
         MATH, SCIENCE, HISTORY, ART
     }
-
-
-
 
 }

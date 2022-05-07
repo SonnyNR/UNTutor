@@ -1,12 +1,13 @@
 package untutor.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import untutor.domain.Topic;
+import untutor.domain.TopicRequest;
 
 import javax.persistence.*;
-import java.lang.annotation.Target;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -20,6 +21,8 @@ public class Tutor extends User {
     private List<Topic> topics;
 
     @OneToMany(targetEntity = TopicRequest.class)
+
+    @JsonManagedReference()
     private List<TopicRequest> topicRequests;
 
 

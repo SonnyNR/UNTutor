@@ -18,8 +18,8 @@ window.client = (function () {
       .catch(error => console.log(error));
   }
 
-  function getRole(success) {
-    const url = '/api/role'
+  function getAccount(success) {
+    const url = '/api/account'
     axios(url)
       .then(result => { success(result.data);});
   }
@@ -32,17 +32,41 @@ window.client = (function () {
 
   }
 
-  function getUser(role, success) {
-    let url = '/api/' + role;
+  function getRole(success) {
+    let url = '/api/role';
     axios(url)
-      .then(result => success(result.data));
+        .then(result => success(result.data));
+  }
+
+  function getTopics(success) {
+    let url = '/api/topic';
+    axios(url)
+        .then(result => success(result.data));
+
+  }
+
+  function getTopicRequests(success) {
+    let url = '/api/topic/requests';
+    axios(url)
+        .then(result => success(result.data));
+  }
+
+  function sendTopicRequest(id_topic) {
+    let url = `/api/topic/request/${id_topic}`;
+    console.log(id_topic);
+    axios.post(url)
+        .catch(error => console.log(error));
+
   }
 
   return {
     login,
-    getRole,
+    getAccount,
     addUser,
-    getUser,
+    getRole,
+    getTopics,
+    sendTopicRequest,
+    getTopicRequests,
   };
 
 }());

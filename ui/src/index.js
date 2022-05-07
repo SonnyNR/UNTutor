@@ -8,11 +8,11 @@ import {
   Route,
 } from "react-router-dom";
 
-import Register from "./routes/register";
-import Login from "./routes/login";
+import Register from "./routes/Register";
+import Login from "./routes/Login";
 import App from "./App";
-import Student from "./routes/student/student";
-import Tutor from "./routes/tutor/tutor";
+import Student from "./routes/student/Student";
+import Tutor from "./routes/tutor/Tutor";
 import Administrator from "./routes/administrator/Administrator";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

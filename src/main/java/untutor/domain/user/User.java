@@ -18,9 +18,9 @@ import java.util.Date;
 public class User implements UserDetails
 {
     private String name;
+    private String phone;
 
     @Id
-    private String phone;
     private String email;
     private String password;
 

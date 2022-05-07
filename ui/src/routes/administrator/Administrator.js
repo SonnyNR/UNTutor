@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import NavBar from '../components/NavBar';
 import PersonalData from "./PersonalData";
+import TopicRequest from "./TopicRequest";
 
 class Administrator extends Component {
 
@@ -8,21 +9,11 @@ class Administrator extends Component {
         super(props);
 
         this.state = {
-            name: '',
-            email: '',
-            phone: '',
+            name: "",
+            email: "",
+            phone: "",
         }
 
-        this.setData = this.setData.bind(this);
-
-    }
-
-    setData({name, email, phone}) {
-        this.setState({
-            name,
-            email,
-            phone,
-        })
     }
 
     render() {
@@ -38,12 +29,18 @@ class Administrator extends Component {
                     email={this.state.email}
                     phone={this.state.phone}
                 />
+                <TopicRequest />
             </main>
         );
     }
 
     componentDidMount() {
-        window.client.getUser('administrator', this.setData);
+        let user = JSON.parse(localStorage.user);
+        this.setState({
+            name: user.name,
+            email: user.email,
+            phone: user.phone,
+        })
     }
 }
 

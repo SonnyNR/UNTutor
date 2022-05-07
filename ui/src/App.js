@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './client.js';
 import NavBar from './routes/components/NavBar';
 
@@ -9,30 +8,34 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      role: localStorage.getItem('role'),
+      role: null,
     };
 
     this.setRole = this.setRole.bind(this);
   }
 
-
-  setRole(role){
-    console.log(role);
-    localStorage.setItem('role', role);
-    this.setState({role});
+  setRole(role) {
+    this.setState({
+      role,
+    })
   }
 
   render() {
     return(
       <div>
-        <NavBar role={this.state.role} />
+        <NavBar role={this.state.role}/>
         <h2>Inicio</h2>
       </div>
     );
   }
 
   componentDidMount() {
-    window.client.getRole(this.setRole);
+
+    if (localStorage.role == null)
+      window.client.getRole(this.setRole);
+    else
+      this.setRole(localStorage.role);
+
   }
 
 }
