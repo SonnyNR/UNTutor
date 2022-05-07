@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './client.js';
 import NavBar from './routes/components/NavBar';
+import logo from './routes/components/img/logo.svg';
+import './App.css';
+import { Link } from "react-router-dom";
 
 class App extends React.Component {
 
@@ -22,10 +25,29 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>
-        <NavBar role={this.state.role}/>
-        <h2>Inicio</h2>
+    <body>
+      <div className='wrapper'>
+        <header>
+          <Link to='/'>
+            <div class="untutorlogo">
+              <a id="logo"><img src={logo} className="App-logo" alt="logo" /></a>
+            </div>
+          </Link>
+          
+          <NavBar role={this.state.role}/>
+          
+        </header>
+        <section class="main-container" >
+          <div class="location" id="home">
+              <h1 id="home">Aún no hay cursos disponibles</h1>
+              <div class="box">
+              </div>
+          </div>
+      </section>
+
       </div>
+    </body>
+    
     );
   }
 

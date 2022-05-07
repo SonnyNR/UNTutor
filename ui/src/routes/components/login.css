@@ -1,0 +1,20 @@
+.login-popup-inner{
+    position: relative;
+    padding: 32px;
+    width: 100%;
+    max-width: 300px;
+    color: black;
+    background-color: #aacc42;
+}
+
+.login-popup .message {
+margin: 15px 0 0;
+color: black;
+font-size: 20px;
+}
+.login-popup .message a {
+color: white;
+text-decoration: none;
+}
+
+  
