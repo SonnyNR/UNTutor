@@ -11,7 +11,7 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-//se encarga de recibir los mensajes de los usuarios y enviarselos a todos los usuarios conectados
+//se encarga de recibir los mensajes de conexion de los usuarios y enviarselos a todos los usuarios conectados
 @Component
 public class SocketHandler extends TextWebSocketHandler {
     private static final Logger LOG = LoggerFactory.getLogger(SocketHandler.class);

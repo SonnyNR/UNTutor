@@ -10,5 +10,6 @@ public class ChatMsg {
     private String content;
     private Date sentDate;
     private String sender;
+    private String receiver;
     
 }
