@@ -26,6 +26,7 @@ class L extends Component {
     if (login) {
         this.setState({logged: login});
         window.client.getAccount(this.setUser);
+        window.location.reload();
     }
 
   }
@@ -99,7 +100,7 @@ class LoginForm extends Component {
 
                   <tr><br/></tr>
                   </table>
-                  <button type="submit" value="Login" onClick={refreshPage} className='login-btn'>Inicia Sesión</button>
+                  <button type="submit" value="Login" className='login-btn'>Inicia Sesión</button>
               </form>
       </main>
     );
