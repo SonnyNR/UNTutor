@@ -4,6 +4,7 @@ import NavBar from './routes/components/NavBar';
 import logo from './routes/components/img/logo.svg';
 import './App.css';
 import { Link } from "react-router-dom";
+import homeimg from './routes/components/img/homepage.png'
 
 class App extends React.Component {
 
@@ -39,7 +40,8 @@ class App extends React.Component {
         </header>
         <section class="main-container" >
           <div class="location" id="home">
-              <h1 id="home">Aún no hay cursos disponibles</h1>
+              <h1 id="home" className="home-text">Únete a nuestra comunidad que conecta estudiantes y tutores. Aprende o enseña sin barreras.</h1>
+              <a id="home-img"><img src={homeimg} className="home-img"/></a>
               <div class="box">
               </div>
           </div>
