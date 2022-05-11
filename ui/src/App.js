@@ -28,14 +28,14 @@ class App extends React.Component {
     return(
     <body>
       <div className='wrapper'>
-        <header>
+        <header className='nav-bar'>
           <Link to='/'>
             <div class="untutorlogo">
               <a id="logo"><img src={logo} className="App-logo" alt="logo" /></a>
             </div>
           </Link>
           
-          <NavBar role={this.state.role}/>
+          <div ></div><NavBar role={this.state.role}/>
           
         </header>
         <section class="main-container" >
