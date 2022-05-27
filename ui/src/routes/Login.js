@@ -1,9 +1,11 @@
 import React, { Component} from 'react';
 import { Navigate } from "react-router-dom";
 import NavBar from './components/NavBar';
+import AuthService from '../services/auth.service';
 
 
-class L extends Component {
+class Login extends Component {
+
   constructor(props) {
     super(props);
 
@@ -13,25 +15,22 @@ class L extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.verifyLogin = this.verifyLogin.bind(this);
-    this.setUser = this.setUser.bind(this);
+    this.commitLogin = this.commitLogin.bind(this);
   }
 
-  setUser(result) {
-      localStorage.setItem("role", result.role);
-      localStorage.setItem("user", JSON.stringify(result.user));
+  commitLogin({role, user}) {
+      localStorage.setItem("role", role);
+      localStorage.setItem("user", JSON.stringify(user));
+      this.setState({logged: true});
   }
 
   verifyLogin(login) {
-
-    if (login) {
-        this.setState({logged: login});
-        window.client.getAccount(this.setUser);
-    }
-
+    if (login)
+        AuthService.getUser(this.commitLogin)
   }
 
   handleSubmit(event, {username, password}) {
-    window.client.login(username, password, this.verifyLogin);
+    AuthService.login(username, password, this.verifyLogin);
     event.preventDefault();
   }
 
@@ -39,19 +38,19 @@ class L extends Component {
     return (
       <div>
         <NavBar />
-        <Login logged={this.state.logged}
+        <LoginFunc logged={this.state.logged}
                handleSubmit={this.handleSubmit}/>
       </div>
     );
   }
 }
 
-const Login = function({logged, handleSubmit}) {
+const LoginFunc = function({logged, handleSubmit}) {
 
   return (
     <div>
-      {logged && <Navigate replace to="/" />}
-      <LoginForm handleSubmit={handleSubmit}/>
+      {logged && <Navigate replace to = "/" />}
+      <LoginForm handleSubmit = {handleSubmit}/>
     </div>
   );
 }
@@ -108,4 +107,4 @@ class LoginForm extends Component {
 
 }
 
-export default L;
+export default Login;

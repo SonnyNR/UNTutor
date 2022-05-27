@@ -2,6 +2,8 @@ import React, { Component} from 'react';
 import NavBar from '../components/NavBar';
 import PersonalData from "./PersonalData";
 import TopicRequest from "./TopicRequest";
+import AuthService from '../../services/auth.service';
+
 
 class Administrator extends Component {
 
@@ -35,7 +37,7 @@ class Administrator extends Component {
     }
 
     componentDidMount() {
-        let user = JSON.parse(localStorage.user);
+        let user = AuthService.getCurrentUser();
         this.setState({
             name: user.name,
             email: user.email,

@@ -1,6 +1,25 @@
 import React, { Component} from 'react';
-import axios from 'axios';
 import NavBar from './components/NavBar';
+import AuthService from '../services/auth.service';
+
+class Register extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(user) {
+        AuthService.register(user, this.state.role);
+    }
+
+    render() {
+        return (
+            <Form handleSubmit = {this.handleSubmit}/>
+        );
+    }
+}
 
 class Form extends React.Component {
 
@@ -16,8 +35,6 @@ class Form extends React.Component {
       };
 
       this.handleInputChange = this.handleInputChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-
     }
 
     handleInputChange(event) {
@@ -40,8 +57,7 @@ class Form extends React.Component {
         role: this.state.role,
       }
 
-      window.client.addUser(user, this.state.role);
-
+      this.props.handleSubmit(user)
       event.preventDefault();
     }
 
@@ -89,4 +105,4 @@ class Form extends React.Component {
     }
   }
 
-  export default Form;
+  export default Register;

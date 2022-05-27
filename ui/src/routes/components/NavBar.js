@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import {Component} from "react";
+import AuthService from "../../services/auth.service"
 
 class NavBar extends Component {
 
@@ -10,7 +11,7 @@ class NavBar extends Component {
     }
 
     logout(event) {
-        localStorage.clear();
+        AuthService.logout();
     }
 
     render() {
@@ -21,7 +22,6 @@ class NavBar extends Component {
 
     }
 }
-
 
 const NavBarNoUser = function() {
   return (

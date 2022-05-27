@@ -14,6 +14,7 @@ import App from "./App";
 import Student from "./routes/student/Student";
 import Tutor from "./routes/tutor/Tutor";
 import Administrator from "./routes/administrator/Administrator";
+import NavBar from "./routes/components/NavBar";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

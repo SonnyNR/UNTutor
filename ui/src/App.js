@@ -31,10 +31,7 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    if (localStorage.role == null)
-      window.client.getRole(this.setRole);
-    else
-      this.setRole(localStorage.role);
+    this.setRole(localStorage.role);
 
   }
 
