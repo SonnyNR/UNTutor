@@ -1,4 +1,7 @@
 import React, {Component} from "react";
+import TopicService from "../../services/topic.service"
+import AuthService from "../../services/auth.service"
+
 
 export default class Topic extends Component {
 
@@ -18,13 +21,10 @@ export default class Topic extends Component {
         this.setTopicRequests = this.setTopicRequests.bind(this);
     }
 
-    setTopicRequests({role, user}) {
-        let user_ = JSON.parse(JSON.stringify(user));
-        localStorage.setItem("user", JSON.stringify(user_))
+    setTopicRequests(topicRequests) {
         this.setState({
-            topicRequestsList: user_.topicRequests,
+            topicRequestList: topicRequests,
         });
-
     }
 
     setTopics(topics) {
@@ -50,10 +50,11 @@ export default class Topic extends Component {
             request: !this.state.request
         });
 
-        window.client.getAccount(this.setTopicRequests);
+        TopicService.getTopicRequestList(this.setTopicRequests);
     }
 
     render() {
+        console.log(this.state.topicRequestList)
         return (
             <div>
                 <h3>Temáticas aprobadas</h3>
@@ -71,11 +72,9 @@ export default class Topic extends Component {
 
     componentDidMount() {
 
-        let user = JSON.parse(localStorage.user);
-        window.client.getTopics(this.setTopics);
-        this.setState({
-            topicRequestList: user.topicRequests,
-        })
+        this.setTopicRequests(AuthService.getCurrentUser().topicRequests);
+        TopicService.getTopicList(this.setTopics);
+
 
     }
 }

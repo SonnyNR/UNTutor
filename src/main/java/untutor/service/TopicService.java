@@ -2,13 +2,11 @@ package untutor.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.expression.Lists;
 import untutor.domain.Topic;
 import untutor.domain.TopicRequest;
+import untutor.domain.user.Tutor;
 import untutor.repository.TopicRepository;
 import untutor.repository.TopicRequestRepository;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,13 +14,30 @@ public class TopicService {
 
     private TopicRepository        topicRepository;
     private TopicRequestRepository topicRequestRepository;
+    private UserService            userService;
 
     @Autowired
     public TopicService(TopicRepository topicRepository,
-                        TopicRequestRepository topicRequestRepository){
-        this.topicRepository = topicRepository;
+                        TopicRequestRepository topicRequestRepository,
+                        UserService userService){
+
+        this.topicRepository        = topicRepository;
         this.topicRequestRepository = topicRequestRepository;
+        this.userService            = userService;
     }
+
+    public TopicRequest createTopicRequest(String tutorEmail, Long topicId) {
+        // verificar que ya no tenga la misma solicitud
+        Topic topic = findTopicById(topicId);
+        Tutor tutor = (Tutor) userService.findByEmail(tutorEmail);
+        TopicRequest topicRequest = new TopicRequest(tutor.getName(), tutor.getEmail(), topic);
+        saveTopicRequest(topicRequest);
+        tutor.getTopicRequests().add(topicRequest);
+        userService.save(tutor);
+        return topicRequest;
+    }
+
+
 
     public Topic saveTopic(Topic topic) {
         return topicRepository.save(topic);
@@ -42,6 +57,11 @@ public class TopicService {
 
     public Topic findTopicById(Long id) {
         return topicRepository.findById(id).get();
+    }
+
+    public List<TopicRequest> getTutorTopicRequestList(String tutorEmail) {
+        Tutor tutor = (Tutor) userService.findByEmail(tutorEmail);
+        return tutor.getTopicRequests();
     }
 
 }

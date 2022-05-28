@@ -3,6 +3,8 @@ import axios from "axios";
 class AuthService {
 
     register(user, role) {
+        console.log(role);
+        console.log("qweqe")
 
         let url = `/api/${role}/register`;
         axios.post(url, user)

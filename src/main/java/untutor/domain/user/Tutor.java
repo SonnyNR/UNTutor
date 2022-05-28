@@ -21,8 +21,6 @@ public class Tutor extends User {
     private List<Topic> topics;
 
     @OneToMany(targetEntity = TopicRequest.class)
-
-    @JsonManagedReference()
     private List<TopicRequest> topicRequests;
 
 

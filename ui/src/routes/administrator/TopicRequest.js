@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import TopicService from "../../services/topic.service"
+
 
 export default class TopicRequest extends Component {
 
@@ -38,8 +40,7 @@ export default class TopicRequest extends Component {
     }
 
     componentDidMount() {
-        window.client.getTopicRequests(this.setTopicRequestList);
-
+        TopicService.getTopicRequestList(this.setTopicRequestList);
     }
 }
 

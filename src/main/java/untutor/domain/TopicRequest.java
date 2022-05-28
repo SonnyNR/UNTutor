@@ -23,9 +23,8 @@ public class TopicRequest {
     @ManyToOne(targetEntity = Topic.class)
     private Topic topic;
 
-    @JsonBackReference
-    @ManyToOne(targetEntity = Tutor.class)
-    private Tutor tutor;
+    private String tutorName;
+    private String tutorEmail;
 
     private Date date;
 
@@ -42,10 +41,11 @@ public class TopicRequest {
 
     }
 
-    public TopicRequest(Tutor tutor, Topic topic) {
-        this.tutor = tutor;
-        this.topic = topic;
-        this.status = Status.INPROCESS;
+    public TopicRequest(String tutorName, String tutorEmail, Topic topic) {
+        this.tutorName  = tutorName;
+        this.tutorEmail = tutorEmail;
+        this.topic      = topic;
+        this.status     = Status.INPROCESS;
     }
 
     public enum Status {

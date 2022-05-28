@@ -10,8 +10,8 @@ class Register extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(user) {
-        AuthService.register(user, this.state.role);
+    handleSubmit(user, role) {
+        AuthService.register(user, role);
     }
 
     render() {
@@ -33,7 +33,7 @@ class Form extends React.Component {
         password: '',
         role: '',
       };
-
+      this.handleSubmitForm = this.handleSubmitForm.bind(this);
       this.handleInputChange = this.handleInputChange.bind(this);
     }
 
@@ -47,7 +47,7 @@ class Form extends React.Component {
       });
     }
 
-    handleSubmit(event) {
+    handleSubmitForm(event) {
 
       const user = {
         name: this.state.name,
@@ -57,8 +57,9 @@ class Form extends React.Component {
         role: this.state.role,
       }
 
-      this.props.handleSubmit(user)
       event.preventDefault();
+      this.props.handleSubmit(user, this.state.role);
+
     }
 
     render() {
@@ -66,7 +67,7 @@ class Form extends React.Component {
         <main>
         <NavBar />
             <h2>Registro</h2>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmitForm}>
                 <table>
                     <tr>
                         <td><label htmlFor="name">Nombre: </label></td>
