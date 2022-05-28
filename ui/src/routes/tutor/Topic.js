@@ -57,11 +57,10 @@ export default class Topic extends Component {
             request: !this.state.request
         });
 
-        TopicService.getTopicRequestList(this.setTopicRequests);
+        TopicService.getTopicRequestAllTutor(this.setTopicRequests);
     }
 
     render() {
-        console.log(this.state.topicRequestList)
         return (
             <div>
                 <h3>Temáticas aprobadas</h3>
@@ -100,7 +99,6 @@ class PassTopic extends Component {
     render() {
         return (
             <div>
-                Aqui va la lista de tematicas aprobadas
                 <PassTopicList list={this.props.passTopicList}/>
                 <button onClick={e => this.props.handleClickTopicRequest(e)}> Solicitar tematica</button>
             </div>
@@ -150,8 +148,7 @@ class FormTopicRequest extends Component {
     }
 
     handleSubmit(event) {
-
-        window.client.sendTopicRequest(this.state.idTopic);
+        TopicService.sendTopicRequest(this.state.idTopic);
         this.props.handleSubmitTopicRequest();
         event.preventDefault();
     }

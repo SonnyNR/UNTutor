@@ -17,10 +17,13 @@ export default class TopicRequest extends Component {
 
     onButtonClick = (event, id) => {
         const name = event.target.name;
-        if(name == 'accept')
+        if(name == 'accept') {
             TopicService.acceptTopic(id);
-            TopicService.getTopicRequestList(this.setTopicRequestList);
+        } else if(name == 'decline') {
+            TopicService.declineTopic(id);
+        }
 
+        TopicService.getTopicRequestAllAdmin(this.setTopicRequestList);
         event.preventDefault();
 
     }
@@ -44,7 +47,7 @@ export default class TopicRequest extends Component {
     }
 
     componentDidMount() {
-        TopicService.getTopicRequestList(this.setTopicRequestList);
+        TopicService.getTopicRequestAllAdmin(this.setTopicRequestList);
     }
 }
 
@@ -62,11 +65,13 @@ const TopicRequestList = function({topicRequestList, onButtonClick}) {
                         <span> </span>
                         {item.topic.name}
                         <span> </span>
+                        <strong>Nombre:</strong> {item.tutorName}
+                        <span> </span>
 
                         <br/>
                         <button onClick={e => onButtonClick(e)} name="send_m">Enviar mensaje</button>
                         <button onClick={e => onButtonClick(e, item.id)} name="accept">Aceptar</button>
-                        <button onClick={e => onButtonClick(e)} name="decline">Rechazar</button>
+                        <button onClick={e => onButtonClick(e, item.id)} name="decline">Rechazar</button>
                     </li>
                 )}
             </ul>

@@ -39,18 +39,19 @@ public class TopicController {
        return topicService.acceptTopicRequest(id);
     }
 
-    @GetMapping("/requests")
-    public List<TopicRequest> getTopicRequestList(Principal principal){
-        String role = userService.getRoleUser(principal.getName());
-        System.out.println(role);
-        if(role.equals("administrator")) {
-            return topicService.getTopicRequestList();
-        } else if(role.equals("tutor"))
-            return topicService.getTutorTopicRequestList(principal.getName());
-        return null;
+    @PostMapping("request/decline/{id}")
+    public TopicRequest declineRequest(@PathVariable("id") Long id) {
+        return topicService.declineTopicRequest(id);
     }
 
-    class RequestTopic {
-        private String idTopic;
+    @GetMapping("/requests/admin")
+    public List<TopicRequest> getTopicRequestAllAdmin(){
+        return topicService.getTopicRequestList();
     }
+
+    @GetMapping("/requests/tutor")
+    public List<TopicRequest> getTopicRequestAllTutor(Principal principal){
+        return topicService.getTopicRequestsAllTutor(principal.getName());
+    }
+
 }

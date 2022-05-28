@@ -39,6 +39,16 @@ public class TopicService {
         return topicRequest;
     }
 
+    public TopicRequest declineTopicRequest(Long topicRId) {
+
+        // verificar si ya estaba aceptada
+        TopicRequest topicRequest = topicRequestRepository.findById(topicRId).get();
+        topicRequest.setStatus(TopicRequest.Status.DECLINED);
+        topicRequestRepository.save(topicRequest);
+
+        return topicRequest;
+    }
+
     public TopicRequest createTopicRequest(String tutorEmail, Long topicRId) {
         // verificar que ya no tenga la misma solicitud
         Topic topic = findTopicById(topicRId);
@@ -48,6 +58,11 @@ public class TopicService {
         tutor.getTopicRequests().add(topicRequest);
         userService.save(tutor);
         return topicRequest;
+    }
+
+    public List<TopicRequest> getTopicRequestsAllTutor(String tutorEmail){
+        Tutor tutor  = (Tutor) userService.findByEmail(tutorEmail);
+        return tutor.getTopicRequests();
     }
 
 
