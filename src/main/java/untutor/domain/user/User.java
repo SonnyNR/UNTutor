@@ -19,6 +19,7 @@ public class User implements UserDetails
 {
     private String name;
     private String phone;
+    private String role;
 
     @Id
     private String email;
@@ -28,7 +29,8 @@ public class User implements UserDetails
 
     }
 
-    public User(String name, String phone, String email, String password) {
+    public User(String role, String name, String phone, String email, String password) {
+        this.role     = role;
         this.name     = name;
         this.email    = email;
         this.password = password;

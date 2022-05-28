@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './client.js';
 import NavBar from './routes/components/NavBar';
+import TopicList from "./routes/student/Topic";
 
 class App extends React.Component {
 
@@ -25,6 +26,7 @@ class App extends React.Component {
       <div>
         <NavBar role={this.state.role}/>
         <h2>Inicio</h2>
+        <TopicList />
       </div>
     );
   }

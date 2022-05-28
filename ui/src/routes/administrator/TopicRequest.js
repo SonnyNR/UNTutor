@@ -69,9 +69,14 @@ const TopicRequestList = function({topicRequestList, onButtonClick}) {
                         <span> </span>
 
                         <br/>
+
+                        {item.status == 'DECLINED' && <button onClick={e => onButtonClick(e, item.id)} name="accept">Aceptar</button>}
+                        {item.status == 'ACCEPTED' && <button onClick={e => onButtonClick(e, item.id)} name="decline">Rechazar</button>}
+                        {item.status == 'INPROCESS' && <button onClick={e => onButtonClick(e, item.id)} name="accept">Aceptar</button>}
+                        {item.status == 'INPROCESS' && <button onClick={e => onButtonClick(e, item.id)} name="decline">Rechazar</button>}
+
                         <button onClick={e => onButtonClick(e)} name="send_m">Enviar mensaje</button>
-                        <button onClick={e => onButtonClick(e, item.id)} name="accept">Aceptar</button>
-                        <button onClick={e => onButtonClick(e, item.id)} name="decline">Rechazar</button>
+
                     </li>
                 )}
             </ul>
