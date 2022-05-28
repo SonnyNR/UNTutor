@@ -26,13 +26,13 @@ public class TopicService {
         this.userService            = userService;
     }
 
-    public TopicRequest acceptTopicRequest(String tutorEmail, Long topicRId) {
+    public TopicRequest acceptTopicRequest(Long topicRId) {
 
         TopicRequest topicRequest = topicRequestRepository.findById(topicRId).get();
         topicRequest.setStatus(TopicRequest.Status.ACCEPTED);
         topicRequestRepository.save(topicRequest);
 
-        Tutor tutor = (Tutor) userService.findByEmail(tutorEmail);
+        Tutor tutor = (Tutor) userService.findByEmail(topicRequest.getTutorEmail());
         tutor.getTopics().add(topicRequest.getTopic());
         userService.save(tutor);
 

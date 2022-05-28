@@ -2,6 +2,10 @@ import axios from "axios";
 
 class TopicService {
 
+    acceptTopic() {
+
+    }
+
     getTopicList(func) {
         return axios('/api/topic')
             .then(result => func(result.data));

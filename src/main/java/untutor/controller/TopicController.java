@@ -35,8 +35,8 @@ public class TopicController {
     }
 
     @PostMapping("request/accept/{id}")
-    public TopicRequest acceptRequest(@PathVariable("id") Long id, Principal principal) {
-       return topicService.acceptTopicRequest(principal.getName(), id);
+    public TopicRequest acceptRequest(@PathVariable("id") Long id) {
+       return topicService.acceptTopicRequest(id);
     }
 
     @GetMapping("/requests")
