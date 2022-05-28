@@ -19,6 +19,13 @@ export default class Topic extends Component {
         this.handleSubmitTopicRequest = this.handleSubmitTopicRequest.bind(this);
         this.setTopics = this.setTopics.bind(this);
         this.setTopicRequests = this.setTopicRequests.bind(this);
+        this.setPassTopicList = this.setPassTopicList.bind(this);
+    }
+
+    setPassTopicList(passTopicList) {
+        this.setState({
+           passTopicList,
+        });
     }
 
     setTopicRequests(topicRequests) {
@@ -59,7 +66,8 @@ export default class Topic extends Component {
             <div>
                 <h3>Temáticas aprobadas</h3>
                 {!this.state.request
-                    ? <PassTopic handleClickTopicRequest={this.handleClickTopicRequest}/>
+                    ? <PassTopic passTopicList={this.state.passTopicList}
+                                 handleClickTopicRequest={this.handleClickTopicRequest}/>
                     : <FormTopicRequest
                         handleSubmitTopicRequest={this.handleSubmitTopicRequest}
                         topicList={this.state.topicList}/>
@@ -73,8 +81,8 @@ export default class Topic extends Component {
     componentDidMount() {
 
         this.setTopicRequests(AuthService.getCurrentUser().topicRequests);
+        this.setPassTopicList(AuthService.getCurrentUser().topics);
         TopicService.getTopicList(this.setTopics);
-
 
     }
 }
@@ -93,7 +101,7 @@ class PassTopic extends Component {
         return (
             <div>
                 Aqui va la lista de tematicas aprobadas
-                <PassTopicList />
+                <PassTopicList list={this.props.passTopicList}/>
                 <button onClick={e => this.props.handleClickTopicRequest(e)}> Solicitar tematica</button>
             </div>
         );
@@ -105,7 +113,11 @@ const PassTopicList = function ({list}) {
     return (
         <div>
             <ul>
-                {/*Listar usando <li></li> con map*/}
+                {list.map(item =>
+                    <li>
+                        {item.name}
+                    </li>
+                )}
             </ul>
         </div>
     );

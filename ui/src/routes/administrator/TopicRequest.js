@@ -15,9 +15,13 @@ export default class TopicRequest extends Component {
         this.onButtonClick = this.onButtonClick.bind(this);
     }
 
-    onButtonClick = (event) => {
-        const btn = event.target;
-        console.log(btn.name);
+    onButtonClick = (event, id) => {
+        const name = event.target.name;
+        if(name == 'accept')
+            TopicService.acceptTopic(id);
+            TopicService.getTopicRequestList(this.setTopicRequestList);
+
+        event.preventDefault();
 
     }
 
@@ -61,7 +65,7 @@ const TopicRequestList = function({topicRequestList, onButtonClick}) {
 
                         <br/>
                         <button onClick={e => onButtonClick(e)} name="send_m">Enviar mensaje</button>
-                        <button onClick={e => onButtonClick(e)} name="accept">Aceptar</button>
+                        <button onClick={e => onButtonClick(e, item.id)} name="accept">Aceptar</button>
                         <button onClick={e => onButtonClick(e)} name="decline">Rechazar</button>
                     </li>
                 )}

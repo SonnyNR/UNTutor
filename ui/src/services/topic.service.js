@@ -2,8 +2,8 @@ import axios from "axios";
 
 class TopicService {
 
-    acceptTopic() {
-
+    acceptTopic(topicRId) {
+        return axios.post(`/api/topic/request/accept/${topicRId}`);
     }
 
     getTopicList(func) {
