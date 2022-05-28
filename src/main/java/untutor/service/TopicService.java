@@ -26,9 +26,22 @@ public class TopicService {
         this.userService            = userService;
     }
 
-    public TopicRequest createTopicRequest(String tutorEmail, Long topicId) {
+    public TopicRequest acceptTopicRequest(String tutorEmail, Long topicRId) {
+
+        TopicRequest topicRequest = topicRequestRepository.findById(topicRId).get();
+        topicRequest.setStatus(TopicRequest.Status.ACCEPTED);
+        topicRequestRepository.save(topicRequest);
+
+        Tutor tutor = (Tutor) userService.findByEmail(tutorEmail);
+        tutor.getTopics().add(topicRequest.getTopic());
+        userService.save(tutor);
+
+        return topicRequest;
+    }
+
+    public TopicRequest createTopicRequest(String tutorEmail, Long topicRId) {
         // verificar que ya no tenga la misma solicitud
-        Topic topic = findTopicById(topicId);
+        Topic topic = findTopicById(topicRId);
         Tutor tutor = (Tutor) userService.findByEmail(tutorEmail);
         TopicRequest topicRequest = new TopicRequest(tutor.getName(), tutor.getEmail(), topic);
         saveTopicRequest(topicRequest);

@@ -34,6 +34,11 @@ public class TopicController {
         return topicService.createTopicRequest(principal.getName(), id);
     }
 
+    @PostMapping("request/accept/{id}")
+    public TopicRequest acceptRequest(@PathVariable("id") Long id, Principal principal) {
+       return topicService.acceptTopicRequest(principal.getName(), id);
+    }
+
     @GetMapping("/requests")
     public List<TopicRequest> getTopicRequestList(Principal principal){
         String role = userService.getRoleUser(principal.getName());
