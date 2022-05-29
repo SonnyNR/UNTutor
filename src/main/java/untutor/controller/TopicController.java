@@ -24,6 +24,11 @@ public class TopicController {
         this.userService  = userService;
     }
 
+    @PostMapping("/request/{id}/message/")
+    public boolean receiveMessage(@PathVariable("id") Long id, String message, Principal principal) {
+        return topicService.receiveMessage(id, message, principal.getName());
+    }
+
     @GetMapping
     public List<Topic> getTopics() {
         return topicService.getTopicsAll();

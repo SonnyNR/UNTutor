@@ -1,13 +1,8 @@
 package untutor.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import lombok.Data;
-import untutor.domain.Topic;
-import untutor.domain.user.Tutor;
 
+import lombok.Data;
+import untutor.domain.chat.Chat;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -28,6 +23,9 @@ public class TopicRequest {
 
     private Date date;
 
+    @OneToOne
+    private Chat chat;
+
     @Enumerated(EnumType.STRING)
     private Status status;
 
@@ -41,10 +39,11 @@ public class TopicRequest {
 
     }
 
-    public TopicRequest(String tutorName, String tutorEmail, Topic topic) {
+    public TopicRequest(String tutorName, String tutorEmail, Topic topic, Chat chat) {
         this.tutorName  = tutorName;
         this.tutorEmail = tutorEmail;
         this.topic      = topic;
+        this.chat       = chat;
         this.status     = Status.INPROCESS;
     }
 
