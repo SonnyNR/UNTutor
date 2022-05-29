@@ -1,7 +1,6 @@
 package untutor.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import untutor.domain.Topic;
 import untutor.domain.TopicRequest;
 
 import java.util.List;

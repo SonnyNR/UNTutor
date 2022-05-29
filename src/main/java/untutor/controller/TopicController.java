@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import untutor.domain.Topic;
 import untutor.domain.TopicRequest;
-import untutor.domain.user.Tutor;
 import untutor.service.TopicService;
 import untutor.service.UserService;
 import java.security.Principal;
@@ -28,12 +27,6 @@ public class TopicController {
     @GetMapping
     public List<Topic> getTopics() {
         return topicService.getTopicsAll();
-    }
-
-    @GetMapping("/tutors/{id}")
-    public List<Object> getTutorsByTopic(@PathVariable("id") Long id, Principal principal) {
-        Topic topic = topicService.findTopicById(id);
-        return userService.getTutorsByTopic(topic.getName());
     }
 
     @PostMapping("/request/{id}")

@@ -1,0 +1,7 @@
+package untutor.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class AdministratorService {
+}

@@ -16,7 +16,7 @@ public class Administrator extends User {
     }
 
     public Administrator(String name, String phone, String email, String password) {
-        super("administrator", name, phone, email, password);
+        super(name, phone, email, password);
     }
 
     @Override

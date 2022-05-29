@@ -1,14 +1,9 @@
 package untutor.service;
-
-import untutor.domain.user.Tutor;
 import untutor.domain.user.User;
 import untutor.repository.UserRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 @Service
@@ -22,19 +17,6 @@ public class UserService
         this.userRepository = userRepository;
     }
 
-    public List<Tutor> getTutors() {
-       return userRepository.getUserByRole("tutor");
-    }
-
-    public List<Object> getTutorsByTopic(String topicName) {
-        List<Tutor> tutors = getTutors();
-        return Arrays.asList(tutors.stream().filter(tutor -> {
-
-            return tutor.getTopics().stream().filter(topic -> topic.getName().equals(topicName)).count() > 0;
-
-        }).toArray());
-    }
-
     public User save(User user)
     {
         return userRepository.save(user);
@@ -43,6 +25,10 @@ public class UserService
     public User findByEmail(String email)
     {
         return userRepository.findByEmail(email);
+    }
+
+    public User findById(Long id) {
+        return userRepository.findUserById(id);
     }
 
     public String getRoleUser(String email) {

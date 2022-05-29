@@ -16,7 +16,7 @@ public class RegistrationUserForm {
     public User toUser(PasswordEncoder encoder)
     {
         User user =  new User
-                ("role", getName(), getPhone(), getEmail(), encoder.encode(getPassword()));
+                (getName(), getPhone(), getEmail(), encoder.encode(getPassword()));
 
         return user;
     }

@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Arrays;
 import java.util.Base64;
@@ -17,11 +19,12 @@ import java.util.Date;
 @Entity
 public class User implements UserDetails
 {
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    private Long id;
+
     private String name;
     private String phone;
-    private String role;
-
-    @Id
     private String email;
     private String password;
 
@@ -29,8 +32,7 @@ public class User implements UserDetails
 
     }
 
-    public User(String role, String name, String phone, String email, String password) {
-        this.role     = role;
+    public User(String name, String phone, String email, String password) {
         this.name     = name;
         this.email    = email;
         this.password = password;
