@@ -10,4 +10,6 @@ public interface TutorRepository extends CrudRepository<Tutor, Long> {
 
     List<Tutor> findTutorsByTopics(Topic topic);
 
+    Tutor findByEmail(String email);
+
 }

@@ -44,14 +44,9 @@ public class TopicController {
         return topicService.declineTopicRequest(id);
     }
 
-    @GetMapping("/requests/admin")
-    public List<TopicRequest> getTopicRequestAllAdmin(){
+    @GetMapping("/requests")
+    public List<TopicRequest> getTopicRequestAll(){
         return topicService.getTopicRequestList();
-    }
-
-    @GetMapping("/requests/tutor")
-    public List<TopicRequest> getTopicRequestAllTutor(Principal principal){
-        return topicService.getTopicRequestsAllTutor(principal.getName());
     }
 
 }

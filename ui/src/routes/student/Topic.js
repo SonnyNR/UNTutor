@@ -1,4 +1,4 @@
-import UserService from '../../services/user.service';
+import TutorService from '../../services/tutor.service';
 import TopicService from '../../services/topic.service';
 import React, { Component } from 'react';
 
@@ -77,8 +77,7 @@ class Topic extends React.Component {
     }
 
     componentDidMount() {
-        console.log("hola");
-        UserService.getTutorsByTopic(this.props.topic.id, this.setTutors);
+        TutorService.getTutorsByTopic(this.props.topic.id, this.setTutors);
     }
 
 }

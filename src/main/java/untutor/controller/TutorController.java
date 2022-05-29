@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import untutor.domain.Topic;
+import untutor.domain.TopicRequest;
 import untutor.domain.form.RegistrationTutorForm;
 import untutor.domain.user.Tutor;
 import untutor.domain.user.User;
@@ -27,6 +29,16 @@ public class TutorController {
         this.userService     = userService;
         this.tutorService    = tutorService;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    @GetMapping("/requests")
+    public List<TopicRequest> getTutorTopicRequestAll(Principal principal){
+        return tutorService.getTutorTopicRequestAll(principal.getName());
+    }
+
+    @GetMapping("/topics")
+    public List<Topic> getTutorTopics(Principal principal){
+        return tutorService.getTutorTopics(principal.getName());
     }
 
     @GetMapping("/topic/{id}")

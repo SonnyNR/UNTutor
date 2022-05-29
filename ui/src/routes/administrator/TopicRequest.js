@@ -23,7 +23,7 @@ export default class TopicRequest extends Component {
             TopicService.declineTopic(id);
         }
 
-        TopicService.getTopicRequestAllAdmin(this.setTopicRequestList);
+        TopicService.getTopicRequestAll(this.setTopicRequestList);
         event.preventDefault();
 
     }
@@ -47,7 +47,7 @@ export default class TopicRequest extends Component {
     }
 
     componentDidMount() {
-        TopicService.getTopicRequestAllAdmin(this.setTopicRequestList);
+        TopicService.getTopicRequestAll(this.setTopicRequestList);
     }
 }
 

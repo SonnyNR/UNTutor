@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import TopicService from "../../services/topic.service"
-import AuthService from "../../services/auth.service"
+import TutorService from "../../services/tutor.service"
 
 
 export default class Topic extends Component {
@@ -57,7 +57,7 @@ export default class Topic extends Component {
             request: !this.state.request
         });
 
-        TopicService.getTopicRequestAllTutor(this.setTopicRequests);
+        TutorService.getTutorTopicRequestAll(this.setTopicRequests)
     }
 
     render() {
@@ -79,8 +79,8 @@ export default class Topic extends Component {
 
     componentDidMount() {
 
-        this.setTopicRequests(AuthService.getCurrentUser().topicRequests);
-        this.setPassTopicList(AuthService.getCurrentUser().topics);
+        TutorService.getTutorTopicRequestAll(this.setTopicRequests)
+        TutorService.getTutorTopicAll(this.setPassTopicList);
         TopicService.getTopicList(this.setTopics);
 
     }
