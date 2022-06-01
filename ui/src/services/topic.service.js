@@ -2,6 +2,12 @@ import axios from "axios";
 
 class TopicService {
 
+    sendMessage(topicRId, message) {
+        return axios.post(`/api/topic/request/${topicRId}/message`, message,{headers: {
+                'Content-Type': 'text/html',
+            }});
+    }
+
     getTopicList(func) {
         return axios('/api/topic')
             .then(result => func(result.data));
@@ -16,7 +22,7 @@ class TopicService {
 
     sendTopicRequest(idTopic) {
         let url = `/api/topic/request/${idTopic}`;
-        axios.post(url)
+        return axios.post(url)
             .catch(error => console.log(error));
     }
 

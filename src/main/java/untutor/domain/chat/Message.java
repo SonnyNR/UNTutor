@@ -13,7 +13,7 @@ public class Message {
     @Id
     private Long id;
 
-    private String from;
+    private String from_;
     private String content;
 
     private Date date;
@@ -22,8 +22,8 @@ public class Message {
 
     }
 
-    public Message(String from, String content) {
-        this.from    = from;
+    public Message(String from_, String content) {
+        this.from_    = from_;
         this.content = content;
     }
 

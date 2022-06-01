@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import TopicService from "../../services/topic.service"
+import Chat from "../components/Chat";
 
 
 export default class TopicRequest extends Component {
@@ -13,9 +14,16 @@ export default class TopicRequest extends Component {
 
         this.setTopicRequestList = this.setTopicRequestList.bind(this);
         this.onButtonClick = this.onButtonClick.bind(this);
+        this.handleSendMessage = this.handleSendMessage.bind(this);
     }
 
-    onButtonClick = (event, id) => {
+    handleSendMessage() {
+        TopicService.getTopicRequestAll(this.setTopicRequestList);
+    }
+
+
+
+        onButtonClick = (event, id) => {
         const name = event.target.name;
         if(name == 'accept') {
             TopicService.acceptTopic(id);
@@ -38,6 +46,7 @@ export default class TopicRequest extends Component {
         return (
             <div>
                 <TopicRequestList
+                    handleSendMessage={this.handleSendMessage}
                     topicRequestList={this.state.list}
                     onButtonClick={this.onButtonClick} />
 
@@ -51,7 +60,7 @@ export default class TopicRequest extends Component {
     }
 }
 
-const TopicRequestList = function({topicRequestList, onButtonClick}) {
+const TopicRequestList = function({handleSendMessage, topicRequestList, onButtonClick}) {
 
     return (
         <div>
@@ -67,15 +76,16 @@ const TopicRequestList = function({topicRequestList, onButtonClick}) {
                         <span> </span>
                         <strong>Nombre:</strong> {item.tutorName}
                         <span> </span>
-
+                        <Chat
+                            handleSendMessage={handleSendMessage}
+                            topicRId={item.id}
+                            chat={item.chat}/>
                         <br/>
 
                         {item.status == 'DECLINED' && <button onClick={e => onButtonClick(e, item.id)} name="accept">Aceptar</button>}
                         {item.status == 'ACCEPTED' && <button onClick={e => onButtonClick(e, item.id)} name="decline">Rechazar</button>}
                         {item.status == 'INPROCESS' && <button onClick={e => onButtonClick(e, item.id)} name="accept">Aceptar</button>}
                         {item.status == 'INPROCESS' && <button onClick={e => onButtonClick(e, item.id)} name="decline">Rechazar</button>}
-
-                        <button onClick={e => onButtonClick(e)} name="send_m">Enviar mensaje</button>
 
                     </li>
                 )}

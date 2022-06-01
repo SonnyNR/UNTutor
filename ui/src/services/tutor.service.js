@@ -9,7 +9,7 @@ class TutorService {
 
     getTutorTopicRequestAll(func) {
         let url = '/api/tutor/requests';
-        axios(url)
+        return axios(url)
             .then(result => func(result.data));
     }
 

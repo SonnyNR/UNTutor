@@ -1,6 +1,7 @@
 package untutor.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import untutor.domain.Topic;
 import untutor.domain.TopicRequest;
@@ -24,8 +25,9 @@ public class TopicController {
         this.userService  = userService;
     }
 
-    @PostMapping("/request/{id}/message/")
-    public boolean receiveMessage(@PathVariable("id") Long id, String message, Principal principal) {
+    @PostMapping(value = "/request/{id}/message")
+    public boolean receiveMessage(@PathVariable("id") Long id, @RequestBody String message, Principal principal) {
+        System.out.println(message);
         return topicService.receiveMessage(id, message, principal.getName());
     }
 

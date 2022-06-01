@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import TopicService from "../../services/topic.service"
 import TutorService from "../../services/tutor.service"
+import Chat from "../components/Chat";
+
 
 
 export default class Topic extends Component {
@@ -15,11 +17,16 @@ export default class Topic extends Component {
             request: false,
         }
 
-        this.handleClickTopicRequest = this.handleClickTopicRequest.bind(this);
+        this.handleClickTopicRequest  = this.handleClickTopicRequest.bind(this);
         this.handleSubmitTopicRequest = this.handleSubmitTopicRequest.bind(this);
-        this.setTopics = this.setTopics.bind(this);
-        this.setTopicRequests = this.setTopicRequests.bind(this);
-        this.setPassTopicList = this.setPassTopicList.bind(this);
+        this.handleSendMessage        = this.handleSendMessage.bind(this);
+        this.setTopics                = this.setTopics.bind(this);
+        this.setTopicRequests         = this.setTopicRequests.bind(this);
+        this.setPassTopicList         = this.setPassTopicList.bind(this);
+    }
+
+    async handleSendMessage() {
+        await TutorService.getTutorTopicRequestAll(this.setTopicRequests)
     }
 
     setPassTopicList(passTopicList) {
@@ -29,6 +36,7 @@ export default class Topic extends Component {
     }
 
     setTopicRequests(topicRequests) {
+        console.log(topicRequests);
         this.setState({
             topicRequestList: topicRequests,
         });
@@ -54,7 +62,7 @@ export default class Topic extends Component {
     handleSubmitTopicRequest() {
 
         this.setState({
-            request: !this.state.request
+            request: !this.state.request,
         });
 
         TutorService.getTutorTopicRequestAll(this.setTopicRequests)
@@ -71,7 +79,9 @@ export default class Topic extends Component {
                         handleSubmitTopicRequest={this.handleSubmitTopicRequest}
                         topicList={this.state.topicList}/>
                 }
-                <TopicRequestList topicRequestList={this.state.topicRequestList}/>
+                <TopicRequestList
+                    handleSendMessage={this.handleSendMessage}
+                    topicRequestList={this.state.topicRequestList}/>
 
             </div>
         );
@@ -147,8 +157,8 @@ class FormTopicRequest extends Component {
 
     }
 
-    handleSubmit(event) {
-        TopicService.sendTopicRequest(this.state.idTopic);
+    async handleSubmit(event) {
+        await TopicService.sendTopicRequest(this.state.idTopic);
         this.props.handleSubmitTopicRequest();
         event.preventDefault();
     }
@@ -170,7 +180,7 @@ class FormTopicRequest extends Component {
     }
 }
 
-const TopicRequestList = function ({topicRequestList}) {
+const TopicRequestList = function ({handleSendMessage, topicRequestList}) {
     return (
         <div>
             <h3>Solicitudes temáticas</h3>
@@ -182,6 +192,11 @@ const TopicRequestList = function ({topicRequestList}) {
                         {item.status}
                         <span> </span>
                         {item.topic.name}
+                        <span> </span>
+                        <Chat
+                            handleSendMessage={handleSendMessage}
+                            topicRId={item.id}
+                            chat={item.chat}/>
                     </li>
                 )}
             </ul>
