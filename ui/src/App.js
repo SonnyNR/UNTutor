@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './client.js';
 import NavBar from './routes/components/NavBar';
-import TopicList from "./routes/student/Topic";
+import './App.css';
+import { Link } from "react-router-dom";
+import logo from './routes/components/img/logo.svg';
+import MainView from './routes/components/MainView.js';
 
 class App extends React.Component {
 
@@ -23,10 +26,9 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>
-        <NavBar role={this.state.role}/>
-        <h2>Inicio</h2>
-        <TopicList />
+      <div className='wrapper'>
+      <NavBar role={this.state.role}/>
+      <MainView role={this.state.role}/>
       </div>
     );
   }

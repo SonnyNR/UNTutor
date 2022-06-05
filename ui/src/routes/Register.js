@@ -1,6 +1,8 @@
 import React, { Component} from 'react';
 import NavBar from './components/NavBar';
 import AuthService from '../services/auth.service';
+import { Navigate, Link } from "react-router-dom";
+import "./Register.css";
 
 class Register extends React.Component {
 
@@ -66,41 +68,32 @@ class Form extends React.Component {
       return (
         <main>
         <NavBar />
-            <h2>Registro</h2>
-            <form onSubmit={this.handleSubmitForm}>
-                <table>
-                    <tr>
-                        <td><label htmlFor="name">Nombre: </label></td>
-                        <td><input type="text" name="name" onChange={this.handleInputChange} value={this.state.name}/></td>
-                    </tr>
-                    <tr>
-                        <td><label htmlFor="phone">Telefono: </label></td>
-                        <td><input type="text" name="phone" onChange={this.handleInputChange} value={this.state.phone}/></td>
-                    </tr>
-                    <tr>
-                        <td><label htmlFor="email">Correo: </label></td>
-                        <td><input type="text" name="email" onChange={this.handleInputChange} value={this.state.email}/></td>
-                    </tr>
-                    <tr>
-                        <td><label htmlFor="password">Contraseña: </label></td>
-                        <td><input type="password" name="password" onChange={this.handleInputChange} value={this.state.password}/></td>
-                    </tr>
-                    <tr>
-                        <td><label htmlFor="role">Rol: </label></td>
-                        <td>
-                            <select name="role" onChange={this.handleInputChange}>
+        <div className="main-container">
+          <div class="container-2" id="container-2">
+            <div class="form2-container">
+              <form className='form-signup' onSubmit={this.handleSubmitForm}ñ>
+                <h1>Únete a Untutor</h1>
+                <br/>
+                <input type="email" name="email" onChange={this.handleInputChange} value={this.state.email} placeholder="Correo electrónico"/>
+                <input type="password" name="password" onChange={this.handleInputChange} value={this.state.password} placeholder="Contraseña"/>
+                <input type="text" name="name" onChange={this.handleInputChange} value={this.state.name} placeholder="Nombre Completo"/>
+                <input type="text" name="phone" onChange={this.handleInputChange} value={this.state.phone} placeholder="Documento de identidad"/>
+                
+                <a>Deseo registrarme como:</a>
+                <select className='selectRole' name="role" onChange={this.handleInputChange}>
+                                <option disabled selected value>-- seleccione una opción --</option>
                                 <option value="student">Estudiante</option>
                                 <option value="tutor">Tutor</option>
                                 <option value="administrator">Administrador</option>
                             </select>
-                        </td>
-                    </tr>
-                    <tr><br/></tr>
-                    <tr>
-                        <td> <input type="submit" value="Registrar"/> </td>
-                    </tr>
-                    </table>
-                </form>
+                <a>¿Ya estas registrado? <Link to='/login'><a className='inicio-secundario'>inicia sesión</a></Link> </a>
+                <button className="sesion-cont-btn" value="Registrar">Regístrate</button>
+                <br />
+                <br />
+              </form>
+            </div>
+          </div>
+        </div>
         </main>
       );
     }

@@ -1,11 +1,10 @@
-import React, { Component} from 'react';
-import { Navigate } from "react-router-dom";
-import NavBar from './components/NavBar';
-import AuthService from '../services/auth.service';
-
+import React, { Component } from "react";
+import { Navigate, Link } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import AuthService from "../services/auth.service";
+import "./Login.css";
 
 class Login extends Component {
-
   constructor(props) {
     super(props);
 
@@ -18,18 +17,17 @@ class Login extends Component {
     this.commitLogin = this.commitLogin.bind(this);
   }
 
-  commitLogin({role, user}) {
-      localStorage.setItem("role", role);
-      localStorage.setItem("user", JSON.stringify(user));
-      this.setState({logged: true});
+  commitLogin({ role, user }) {
+    localStorage.setItem("role", role);
+    localStorage.setItem("user", JSON.stringify(user));
+    this.setState({ logged: true });
   }
 
   verifyLogin(login) {
-    if (login)
-        AuthService.getUser(this.commitLogin)
+    if (login) AuthService.getUser(this.commitLogin);
   }
 
-  handleSubmit(event, {username, password}) {
+  handleSubmit(event, { username, password }) {
     AuthService.login(username, password, this.verifyLogin);
     event.preventDefault();
   }
@@ -37,33 +35,33 @@ class Login extends Component {
   render() {
     return (
       <div>
+        <LoginFunc
+          logged={this.state.logged}
+          handleSubmit={this.handleSubmit}
+        />
         <NavBar />
-        <LoginFunc logged={this.state.logged}
-               handleSubmit={this.handleSubmit}/>
       </div>
     );
   }
 }
 
-const LoginFunc = function({logged, handleSubmit}) {
-
+const LoginFunc = function ({ logged, handleSubmit }) {
   return (
     <div>
-      {logged && <Navigate replace to = "/" />}
-      <LoginForm handleSubmit = {handleSubmit}/>
+      {logged && <Navigate replace to="/" />}
+      <LoginForm handleSubmit={handleSubmit} />
     </div>
   );
-}
+};
 
 class LoginForm extends Component {
-
   constructor(props) {
     super(props);
 
     this.state = {
-      username: '',
-      password: '',
-    }
+      username: "",
+      password: "",
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -74,37 +72,61 @@ class LoginForm extends Component {
     const name = target.name;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
   render() {
     return (
       <main>
-          <h2>Login</h2>
-          <form onSubmit={e => this.props.handleSubmit(e, this.state)}>
-              <table>
-                  <tr>
-                      <td><label hmtlFor="username">Correo: </label></td>
-                      <td><input type="text" name="username" onChange={this.handleInputChange} value={this.state.username}/></td>
-                  </tr>
-
-                  <tr>
-                      <td><label hmtlFor="password">Contraseña: </label></td>
-                      <td><input type="password" name="password" onChange={this.handleInputChange} value={this.state.password}/></td>
-                  </tr>
-
-                  <tr><br/></tr>
-                  <tr>
-                      <td> <input type="submit" value="Login"/> </td>
-                  </tr>
-                  </table>
+        <div className="main-container">
+          <div class="container" id="container">
+            
+            <div class="form-container sign-in-container">
+              <form className="form-login" onSubmit={(e) => this.props.handleSubmit(e, this.state)}>
+                <h1>¡Hola otra vez!</h1>
+                <br />
+                <input
+                  type="email"
+                  name="username"
+                  onChange={this.handleInputChange}
+                  value={this.state.username}
+                  placeholder="Correo"
+                />
+                <input
+                  type="password"
+                  name="password"
+                  onChange={this.handleInputChange}
+                  value={this.state.password}
+                  placeholder="Contraseña"
+                />
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <button className="sesion-cont-btn">Iniciar sesión</button>
+                <br />
+                <br />
               </form>
+            </div>
+            <div class="overlay-container">
+              <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                  <h1>¿Eres nuevo?</h1>
+                  <p>
+                    ¡Regístrate ahora! embarcate en una aventura llena de
+                    aprendizaje
+                  </p>
+                  <Link to="/register">
+                    <button className="sesion-cont-btn-ghost" id="signUp">
+                      Regístrate
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     );
-
   }
-
 }
 
 export default Login;

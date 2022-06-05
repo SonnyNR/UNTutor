@@ -1,0 +1,136 @@
+header {
+  padding: 0px 0px 0 20px;
+  position: fixed;
+  top: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+   "ny mn mn sb . . . "; 
+  background-color: var(--primary);
+  width: 100%;
+  margin-bottom: 0px;  
+  z-index: 999;
+}
+
+.untutorlogo {
+  grid-area: ny;
+  object-fit: cover;
+  width: 300px;
+  max-height: 100%;
+}
+
+.untutorlogo img {  
+  height: 35px;     
+}
+
+.sub-nav {
+  grid-area: sb;
+}
+
+.sub-nav a {
+  color: var(--light);
+  text-decoration: none;
+}
+
+.btns{
+  padding-top: 15px;
+}
+
+.sesion-btn {
+  text-decoration: none;
+  border: none;
+  background: #464646;
+  font-weight: bold;
+  text-align: center;
+  right: 15px;
+  font-size: 16px;
+  padding: 12px 25px;
+  color: var(--light);
+  margin-right: 20px;
+}
+
+.sesion-btn:hover {
+  color: var(--dark);
+}
+
+.registro-btn {
+  color: var(--light);
+  border: none;
+  text-decoration: none;
+  background: #94b43b;
+  font-weight: bold;
+  text-align: center;
+  right: 15px;
+  font-size: 16px;
+  padding: 12px 25px;
+  margin-right: 45px;
+}
+.registro-btn:hover {
+  background: #556621;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  padding-top: 15px;
+  padding-right: 25px;
+  
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.486);
+  min-width: 130px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  right: 15px;
+  top: 25px;
+  z-index: 1;
+  line-height: 30px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.userSVG {
+  width: 80px;
+  height: 100%;
+  border: none;
+  background: none;
+}
+
+.userSVG-img {
+  position: relative;
+  filter: invert(100%);
+  height: 25px;
+  width: 25px;
+}
+.downArrow-img {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  filter: invert(100%);
+  bottom: 5px;
+}
+
+.line {
+  height: 1px;
+  background: rgb(63, 63, 63);
+  margin-top: 5px;
+}
+
+.miArea {
+  text-decoration: none;
+  color: white;
+}
+
+.cerrar-btn {
+  position: relative;
+  color: white;
+  font-size: 14px;
+  border: none;
+  background: none;
+  right: 5px;
+}

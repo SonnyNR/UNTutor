@@ -1,0 +1,25 @@
+.try-btn{
+  position: relative;
+  color: var(--light);
+  border: none;
+  text-decoration: none;
+  background: #94b43b;
+  font-weight: bold;
+  text-align: center;
+  nav-left: 25px;
+  font-size: 24px;
+  padding: 12px 25px;
+  margin-right: 45px;
+  position: relative;
+  z-index: 10;
+  margin-top: 40px;
+}
+.un-img {
+    padding-top: 450px;
+    right: 100px;
+    margin-left: 50px;
+    z-index: -5;
+  }
+.home-text{
+    color: white;
+}

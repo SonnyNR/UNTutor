@@ -15,6 +15,7 @@ import Student from "./routes/student/Student";
 import Tutor from "./routes/tutor/Tutor";
 import Administrator from "./routes/administrator/Administrator";
 import NavBar from "./routes/components/NavBar";
+import Modal from './routes/components/Modal';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,6 +24,7 @@ root.render(
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
+          <Route path="/home" element={<App />} />
           <Route path="/student" element={<Student />} />
           <Route path="/tutor" element={<Tutor />} />
           <Route path="/login" element={<Login />} />
