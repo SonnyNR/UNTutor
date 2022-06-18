@@ -14,9 +14,7 @@ import App from "./App";
 import Student from "./routes/student/Student";
 import Tutor from "./routes/tutor/Tutor";
 import Administrator from "./routes/administrator/Administrator";
-import NavBar from "./routes/components/NavBar";
-import Modal from './routes/components/Modal';
-import TutoresDisponibles from './routes/student/TutoresDisponibles';
+import TopicList from "./routes/student/Topic";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -31,7 +29,7 @@ root.render(
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/administrator" element={<Administrator />} />
-          <Route path='/tutores-disponibles' element={<TutoresDisponibles/>}/>
+          <Route path='/lista-tutores' element={<TopicList/>}/>
         </Routes>
       </BrowserRouter>
   </React.StrictMode>

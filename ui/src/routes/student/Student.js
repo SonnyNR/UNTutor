@@ -19,13 +19,15 @@ class Student extends Component {
       <main>
         <NavBar role="tutor" />
         <div className="area-tutor">
-          <h2>Area Estudiante</h2>
+          <h2 className="area-txt">Area Estudiante</h2>
+          <hr className="line"></hr>
           <h3>Información personal</h3>
           <PersonalData
             name={this.state.name}
             email={this.state.email}
             phone={this.state.phone}
           />
+          <hr className="line"></hr>
           <h3>Sesiones programadas</h3>
         </div>
       </main>

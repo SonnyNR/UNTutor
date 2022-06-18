@@ -79,6 +79,7 @@ export default class Topic extends Component {
                         handleSubmitTopicRequest={this.handleSubmitTopicRequest}
                         topicList={this.state.topicList}/>
                 }
+                <hr className="line"></hr>
                 <TopicRequestList
                     handleSendMessage={this.handleSendMessage}
                     topicRequestList={this.state.topicRequestList}/>

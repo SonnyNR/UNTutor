@@ -18,3 +18,7 @@ position: relative;
   position: relative;
   z-index: 10;
 }
+
+.area-txt{
+  font-size: 40px;
+}

@@ -53,8 +53,6 @@ const HomeUser = function ({ role, log }) {
             <h1 id="home" className="home-text">
               Bienvenido estudiante, ¿necesitas ayuda en tu tarea?
             </h1>
-
-            <TopicList />
             <h2>
               <TopicCarrousel />
             </h2>
@@ -71,8 +69,11 @@ const HomeUser = function ({ role, log }) {
               <h1 id="home" className="home-text">
                 Bienvenido tutor, ¿qué deseas enseñar hoy?
               </h1>
+              <Link to="/tutor">
+                <button className="try-btn">Ir a mi Area</button>
+              </Link>
             </div>
-            <TopicList />
+            
             <h2>
               <TopicCarrousel />
             </h2>
