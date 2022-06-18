@@ -72,7 +72,7 @@ class Form extends React.Component {
           <div class="container-2" id="container-2">
             <div class="form2-container">
               <form className='form-signup' onSubmit={this.handleSubmitForm}ñ>
-                <h1>Únete a Untutor</h1>
+                <h1 className="reg-title">Únete a Untutor</h1>
                 <br/>
                 <input type="email" name="email" onChange={this.handleInputChange} value={this.state.email} placeholder="Correo electrónico"/>
                 <input type="password" name="password" onChange={this.handleInputChange} value={this.state.password} placeholder="Contraseña"/>

@@ -16,6 +16,7 @@ import Tutor from "./routes/tutor/Tutor";
 import Administrator from "./routes/administrator/Administrator";
 import NavBar from "./routes/components/NavBar";
 import Modal from './routes/components/Modal';
+import TutoresDisponibles from './routes/student/TutoresDisponibles';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,6 +31,7 @@ root.render(
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/administrator" element={<Administrator />} />
+          <Route path='/tutores-disponibles' element={<TutoresDisponibles/>}/>
         </Routes>
       </BrowserRouter>
   </React.StrictMode>

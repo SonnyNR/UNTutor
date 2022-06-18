@@ -1,4 +1,4 @@
-.try-btn{
+.try-btn {
   position: relative;
   color: var(--light);
   border: none;
@@ -15,11 +15,26 @@
   margin-top: 40px;
 }
 .un-img {
-    padding-top: 450px;
-    right: 100px;
-    margin-left: 50px;
-    z-index: -5;
-  }
-.home-text{
-    color: white;
+  right: 100px;
+  margin-left: 50px;
+  z-index: -5;
+  padding-bottom: 200px;
+}
+.home-text {
+  color: white;
+}
+.box {
+  z-index: -10;
+}
+.carroussel {
+  position: relative;
+  z-index: 10;
+}
+.main-txt-div {
+  margin-top: 300px;
+}
+
+.home-text {
+  top: 100px;
+  text-shadow: 5px 5px 10px black;
 }

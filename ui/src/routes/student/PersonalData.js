@@ -1,4 +1,7 @@
 import React, {Component} from "react";
+import default_profile from "../components/img/default_profile.png";
+import pencil from "../components/img/pencil-solid.svg";
+import "./PersonalData.css";
 
 export default class PersonalData extends Component {
 
@@ -53,6 +56,9 @@ const PersonalDataText = ({name, email, phone, handleClickModify}) => {
 
     return (
         <div>
+            <div>
+            <img src={default_profile} className="default-profile" />
+            </div>
             <table>
                 <tr>
                     <td>Nombre:</td>
@@ -68,8 +74,8 @@ const PersonalDataText = ({name, email, phone, handleClickModify}) => {
                 </tr>
                 <tr><br/></tr>
                 <tr>
-                    <button onClick={e => handleClickModify(e)}>
-                        Modificar
+                    <button onClick={e => handleClickModify(e)} >
+                    <img src={pencil} className="pencilSVG" /> Modificar
                     </button>
                 </tr>
             </table>

@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import TopicService from "../../services/topic.service"
 import TutorService from "../../services/tutor.service"
 import Chat from "../components/Chat";
-
+import "./Tutor.css";
 
 
 export default class Topic extends Component {
@@ -110,7 +110,7 @@ class PassTopic extends Component {
         return (
             <div>
                 <PassTopicList list={this.props.passTopicList}/>
-                <button onClick={e => this.props.handleClickTopicRequest(e)}> Solicitar tematica</button>
+                <button onClick={e => this.props.handleClickTopicRequest(e)} className="soli-btn"> Solicitar tematica</button>
             </div>
         );
     }

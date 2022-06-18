@@ -84,7 +84,7 @@ class LoginForm extends Component {
             
             <div class="form-container sign-in-container">
               <form className="form-login" onSubmit={(e) => this.props.handleSubmit(e, this.state)}>
-                <h1>¡Hola otra vez!</h1>
+                <h1 className="reg-title">¡Hola otra vez!</h1>
                 <br />
                 <input
                   type="email"
@@ -109,8 +109,8 @@ class LoginForm extends Component {
             <div class="overlay-container">
               <div class="overlay">
                 <div class="overlay-panel overlay-right">
-                  <h1>¿Eres nuevo?</h1>
-                  <p>
+                  <h1 className="login-txt">¿Eres nuevo?</h1>
+                  <p className="login-txt">
                     ¡Regístrate ahora! embarcate en una aventura llena de
                     aprendizaje
                   </p>
