@@ -84,7 +84,6 @@ class Form extends React.Component {
                                 <option disabled selected value>-- seleccione una opción --</option>
                                 <option value="student">Estudiante</option>
                                 <option value="tutor">Tutor</option>
-                                <option value="administrator">Administrador</option>
                             </select>
                 <a>¿Ya estas registrado? <Link to='/login'><a className='inicio-secundario'>inicia sesión</a></Link> </a>
                 <button className="sesion-cont-btn" value="Registrar">Regístrate</button>

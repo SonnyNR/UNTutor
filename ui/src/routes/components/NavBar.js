@@ -92,3 +92,4 @@ const NavBarUser = function ({ role, log }) {
 };
 
 export default NavBar;
+

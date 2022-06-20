@@ -1,0 +1,42 @@
+
+.signin-popup input {
+    background: #aacc42;
+    font-size: 14px;
+  }
+
+  .register-btn:hover,.form button:active,.form button:focus {
+    background: #8aa736;
+  }
+  .register-btn {
+      position: relative;
+      color: white;
+      height: 50px;
+      width: 300px;
+      text-decoration: none;
+      background: #aacc42;
+      font-size: 18px;
+      border: none;
+  }
+  .signin-popup label {
+    color: white;
+    text-decoration: none;
+  }
+  .x2-btn{
+    color: white;
+   
+  }
+
+  .selectRole{
+    color: white;
+    outline: 0;
+    background: #aacc42;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  
+  
