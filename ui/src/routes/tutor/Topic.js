@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import TopicService from "../../services/topic.service"
 import TutorService from "../../services/tutor.service"
 import Chat from "../components/Chat";
-import "./Tutor.css";
+import "./tutor.css";
 
 
 export default class Topic extends Component {

@@ -20,6 +20,10 @@
     background-color: #464646;
 }
 
+.item:active{
+    background-color: #617481;
+}
+
 .nav-button{
     color: #464646;
     padding-right: 20px;

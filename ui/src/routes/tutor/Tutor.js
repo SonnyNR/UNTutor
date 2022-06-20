@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 import PersonalData from "./PersonalData";
 import Topic from "./Topic";
 import AuthService from "../../services/auth.service";
-import "./Tutor.css";
+import "./tutor.css";
 
 class Tutor extends Component {
   constructor(props) {

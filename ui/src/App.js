@@ -30,7 +30,6 @@ class App extends React.Component {
       <NavBar role={this.state.role}/>
       <MainView role={this.state.role}/>
       </div>
-    </body>
     
     );
   }
