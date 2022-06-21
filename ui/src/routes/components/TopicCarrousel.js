@@ -24,8 +24,8 @@ const options = {
   nav: true,
   autoplay: false,
   navText: [
-    "<div class='nav-button'>‹</div>",
-    "<div class='nav-button'>›</div>",
+    "<div class='nav-button'>🡄</div>",
+    "<div class='nav-button'>🡆</div>",
   ],
   smartSpeed: 1000,
   responsive: {
@@ -51,39 +51,39 @@ class TopicCarrousel extends Component {
     return (
       <div className="carousel-container">
         <OwlCarousel className="slider-items owl-carousel" {...options}>
-          <div class="item">
+        <Link to={'/sesion'}><div class="item">
             <img src={eq_dif} /> <h4>Ecuaciones diferenciales</h4>
-          </div>
-          <div class="item">
+          </div></Link>
+        <Link to={'/sesion'}><div class="item">
             <img src={alg_lin} /> <h4>Algebra Lineal</h4>
-          </div>
-          <div class="item">
+          </div></Link>
+        <Link to={'/sesion'}><div class="item">
             <img src={mat_bas} /> <h4>Matemáticas básicas</h4>
-          </div>
-          <div class="item">
+          </div></Link>
+        <Link to={'/sesion'}><div class="item">
             <img src={cal_int} /> <h4>Cálculo integral</h4>
-          </div>
-          <div class="item">
+          </div></Link>
+        <Link to={'/sesion'}><div class="item">
             <img src={cal_dif} /> <h4>Cálculo diferencial</h4>{" "}
-          </div>
-          <div class="item">
+          </div></Link>
+        <Link to={'/sesion'}><div class="item">
             <img src={cal_mul} /> <h4>Cálculo multivariado</h4>
-          </div>
-          <div class="item">
+          </div></Link>
+        <Link to={'/sesion'}><div class="item">
             <img src={bio} /> <h4>Biología</h4>
-          </div>
-          <div class="item">
+          </div></Link>
+          <Link to={'/sesion'}><div class="item">
             <img src={qui_org} /> <h4>Química orgánica</h4>
-          </div>
-          <div class="item">
+          </div></Link>
+          <Link to={'/sesion'}><div class="item">
             <img src={qui_ino} /> <h4>Química inorgánica</h4>
-          </div>
-          <div class="item">
+          </div></Link>
+         <Link to={'/sesion'}><div class="item">
             <img src={fis_1} /> <h4>Física I</h4>
-          </div>
-          <div class="item">
+          </div></Link>
+          <Link to={'/sesion'}><div class="item">
             <img src={fis_2} /> <h4>Física II</h4>
-          </div>
+          </div></Link>
         </OwlCarousel>
         <div className="tuto-btn-section">
           <Link to="/lista-tutores">

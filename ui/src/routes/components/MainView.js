@@ -50,9 +50,12 @@ const HomeUser = function ({ role, log }) {
       <section class="main-container">
         <div class="location" id="home">
           <div class="box">
+          <div className="main-txt-div">
             <h1 id="home" className="home-text">
               Bienvenido estudiante, ¿necesitas ayuda en tu tarea?
             </h1>
+            
+            </div>
             <h2>
               <TopicCarrousel />
             </h2>

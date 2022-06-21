@@ -1,0 +1,7 @@
+h4{
+  /*white bold font*/
+    font-weight: bold;
+    color: var(--light);
+    font-size: 16px;
+    
+}

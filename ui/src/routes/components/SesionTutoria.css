@@ -1,0 +1,131 @@
+
+
+  
+  .lienzo-sesion {
+    position: absolute;
+    top: 100px;
+    display: block;
+    border-radius: 30px;
+    
+    height: 90%;
+    width: 100%;
+  }
+  
+  .tablero {
+    background-color: #2f860a;
+    float: left;
+    display: grid;
+    left: 0;
+    top: 0;
+    width: 73%;
+    height: 95%;
+    border: 3px solid #94b43b;
+    border-radius: 30px;
+    overflow-y: hidden;
+  }
+  
+  /*the image covers all tablero avoiding aspect ratio*/
+  .tablero img {
+    border-radius: 30px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  
+  .columna-chat{
+    float: right;
+    width: 25%;
+    height: 95%;
+    border: 3px solid #94b43b;
+    border-radius: 30px;
+  }
+  
+  .carrusel-tutores{
+    margin: auto;
+    width: 95%;
+    height: 30%;
+    overflow-y:scroll;
+  }
+  
+  ul{
+    list-style-type: none;
+    margin: 0 0 0 10px;
+    padding: 10px;
+    overflow: hidden;
+  
+  }
+  
+  li{
+    padding: 10px;
+    border: 2px solid rgb(4, 110, 103);
+    border-radius: 30px;
+    margin: 10px 0;
+  }
+  
+  li:hover{
+    background-color: #484848;
+    border: 2px solid rgb(3, 81, 103);
+  
+  }
+  
+  li:active{
+    background-color: #509198;
+  }
+  
+  
+  .chat-box{
+    margin: auto;
+    width: 95%;
+    height: 68%;
+  }
+  
+  .chat-box-mensajes{
+    margin: 0px 20px 0px 5px;
+    width: 95%;
+    height: 80%;
+    border: 5px solid rgb(116, 118, 0);
+    border-radius: 30px;
+  }
+  .chat-box-input{
+    margin: 22px 20px 0px 5px;
+    width: 95%;
+    height: 13%;
+  }
+  
+  /*the input text box fits the center of the div containing*/
+  .chat-box-input input{
+    width: 70%;
+    height: 100%;
+    padding: 12px 20px;
+    margin:  0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  /*button "enviar" is the same height as input and changes color to blue when hover*/
+  .chat-box-input button{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  /*color to blue when hover*/
+  .chat-box-input button:hover{
+    background-color: #80bd62;
+  }
+  /*color to dark blue when clicked*/
+  .chat-box-input button:active{
+    background-color: #bfe6c0;
+  }
+  
+  
+  
+  

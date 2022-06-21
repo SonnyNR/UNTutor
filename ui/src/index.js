@@ -15,6 +15,7 @@ import Student from "./routes/student/Student";
 import Tutor from "./routes/tutor/Tutor";
 import Administrator from "./routes/administrator/Administrator";
 import TopicList from "./routes/student/Topic";
+import SesionTutoria from './routes/components/SesionTutoria';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,6 +31,7 @@ root.render(
           <Route path="/register" element={<Register />} />
           <Route path="/administrator" element={<Administrator />} />
           <Route path='/lista-tutores' element={<TopicList/>}/>
+          <Route path='/sesion' element={<SesionTutoria/>}/>
         </Routes>
       </BrowserRouter>
   </React.StrictMode>
