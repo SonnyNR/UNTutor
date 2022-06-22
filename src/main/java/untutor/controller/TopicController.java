@@ -53,6 +53,7 @@ public class TopicController {
 
     @GetMapping("/requests")
     public List<TopicRequest> getTopicRequestAll(){
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
         return topicService.getTopicRequestList();
     }
 

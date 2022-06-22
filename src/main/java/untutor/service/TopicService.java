@@ -106,6 +106,7 @@ public class TopicService {
     }
 
     public List<TopicRequest> getTopicRequestList() {
+        
         return topicRequestRepository.findAll();
     }
 

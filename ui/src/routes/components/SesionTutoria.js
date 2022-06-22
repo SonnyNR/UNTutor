@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NavBar from '../components/NavBar';
-import '../tutor/tutor.css';
 import UsuarioChatSesion from './UsuarioChatSesion';
 import './SesionTutoria.css';
 import board_img from './img/board.jpg';
@@ -406,7 +405,7 @@ let minom = JSON.parse(localStorage.user).name.split(' ')[0];
 
                             </div>
                             <div class='chat-box-input'>
-                                <input id="mensajeAenviar" type='text' placeholder='Escribe un mensaje'/>
+                                <input id="mensajeAenviar" type='text' placeholder='Escribe un mensaje' autocomplete="off"/>
                                 <button onClick={() => sendChat()}>Enviar</button>
                             </div>
                         </div>
