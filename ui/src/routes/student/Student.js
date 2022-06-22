@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NavBar from "../components/NavBar";
 import PersonalData from "./PersonalData";
 import AuthService from "../../services/auth.service";
+import "./student.css";
 
 class Student extends Component {
   constructor(props) {

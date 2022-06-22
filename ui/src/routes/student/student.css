@@ -1,58 +1,20 @@
+.area-student{
+  margin: 50px;
+  color: white;
+}
 
-  img {
-    max-width: 100%;
-  }
-  
-  h2 {
-    padding-top: 60px;  
-  }
-  
-  .wrapper {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* HEADER */
-  header {
-    padding: 15px 20px 0 20px;
-    position: fixed;
-    top: 0;
-    display: grid;  
-    grid-gap:5px;
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-     "ny mn mn sb . . . "; 
-    background-color: var(--primary);
-    width: 100%;
-    margin-bottom: 0px;  
-  }
-  
-  .untutorlogo {
-    grid-area: ny;
-    object-fit: cover;
-    width: 300px;
-    max-height: 100%;
-    
-    padding-left: 30px;
-    padding-bottom: 15px;  
-  }
-  
-  .untutorlogo img {  
-    height: 35px;     
-  }
-    
-  .mainimg{
-      padding: 100px;
-      height: 700px;
-  }
-  
-  .area-text{
-    padding: 50px;
-  }
-    
-  footer {
-      padding: 20px;
-      text-align: center;
-      color: var(--dark);
-      margin: 10px;
-  }
+.soli-btn{
+position: relative;
+color: var(--light);
+border: none;
+text-decoration: none;
+background: #94b43b;
+font-weight: bold;
+text-align: center;
+nav-left: 25px;
+font-size: 18px;
+padding: 12px 25px;
+margin-right: 45px;
+position: relative;
+z-index: 10;
+}
