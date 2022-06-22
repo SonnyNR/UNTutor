@@ -6,14 +6,14 @@ import './SesionTutoria.css';
 import board_img from './img/board.jpg';
 
 
-var counter=0;
+var counter = 0;
 
 var signal1 = {
     userId: null,
     type: null,
     data: null,
     toUid: null,
-  };
+};
 
 
 
@@ -138,6 +138,10 @@ function startWebSocket() {
 */
 
 
+function enviarChat(){
+    document.getElementById("")
+}
+
 class SesionTutoria extends Component {
 
     constructor(props) {
@@ -160,49 +164,76 @@ class SesionTutoria extends Component {
 
         return (
             <div class='wrapper'>
-                <NavBar role={localStorage.role}/>
+                <NavBar role={localStorage.role} />
                 <main>
-                <div class='lienzo-sesion' >
-                    <div class='tablero'>
+                    <div class='lienzo-sesion' >
+                        <div class='tablero'>
 
-                        <img class="board-background" src={board_img} alt="board" />
+                            <img class="board-background" src={board_img} alt="board" />
 
-                    </div>
-
-                    <div class='columna-chat'>
-                        <div class='carrusel-tutores'>
-                            <ul id="tutor-list">
-                                <li >
-                                    <UsuarioChatSesion
-                                        nombre="Danny G."
-                                        tematica="Matematica" />
-                                </li>
-                                <li >
-                                    <UsuarioChatSesion
-                                        nombre="Maria J."
-                                        tematica="Programación" />
-                                </li>
-                                <li >
-                                    <UsuarioChatSesion
-                                        nombre="Jorge H."
-                                        tematica="Correccion de estilo" />
-                                </li>
-                            </ul>
-                        </div>
-                        <div class='chat-box'>
-                            <div class='chat-box-mensajes'>
-
-                            </div>
-                            <div class='chat-box-input'>
-                                <input type='text' placeholder='Escribe un mensaje' />
-                                <button onClick={() => loginWebSocketStudent()}>Enviar</button>
-                            </div>
                         </div>
 
+                        <div class='columna-chat'>
+                            <div class='carrusel-tutores'>
+                                <ul id="tutor-list">
+                                    <li >
+                                        <UsuarioChatSesion
+                                            nombre="Danny G."
+                                            tematica="Matematica" />
+                                    </li>
+                                    <li >
+                                        <UsuarioChatSesion
+                                            nombre="Maria J."
+                                            tematica="Programación" />
+                                    </li>
+                                    <li >
+                                        <UsuarioChatSesion
+                                            nombre="Jorge H."
+                                            tematica="Correccion de estilo" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class='chat-box'>
+                                <div id='chat-box-mensajes'>
+                                        <div class="msg recibido">
+                                            Mensaje recibido
+                                        </div>
+
+                                        <div class="msg enviado">
+                                            Mensaje enviado
+                                        </div>
+                                        <div class="msg recibido">
+                                            Mensaje recibido
+                                        </div>
+
+                                        <div class="msg enviado">
+                                            Mensaje enviado
+                                        </div>
+                                        <div class="msg recibido">
+                                            Mensaje recibido
+                                        </div>
+
+                                        <div class="msg enviado">
+                                            Mensaje enviado
+                                        </div>
+                                        <div class="msg recibido">
+                                            Mensaje recibido
+                                        </div>
+                                        <div class="msg enviado">
+                                            Mensaje enviado
+                                        </div>
+                                        
+                                </div>
+                                <div class='chat-box-input'>
+                                    <input type='text' placeholder='Escribe un mensaje' />
+                                    <button onClick={() => enviarChat()}>Enviar</button>
+                                </div>
+                            </div>
+
+
+                        </div>
 
                     </div>
-
-                </div>
                 </main>
             </div>
         );
@@ -210,8 +241,8 @@ class SesionTutoria extends Component {
     }
 
     componentDidMount() {
-        let user = JSON.parse(localStorage.user);
-        console.log(user);
+        let userchat = JSON.parse(localStorage.user);
+        //console.log(userchat);
         /* this.setState({
             name: user.name,
             email: user.email,

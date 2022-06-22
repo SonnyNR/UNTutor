@@ -52,7 +52,7 @@ const HomeUser = function ({ role, log }) {
           <div class="box">
           <div className="main-txt-div">
             <h1 id="home" className="home-text">
-              Bienvenido estudiante, ¿necesitas ayuda en tu tarea?
+              Bienvenido {JSON.parse(localStorage.user).name.split(' ')[0]}, ¿Necesitas ayuda en tu tarea?
             </h1>
             
             </div>
@@ -70,7 +70,7 @@ const HomeUser = function ({ role, log }) {
           <div class="box">
             <div className="main-txt-div">
               <h1 id="home" className="home-text">
-                Bienvenido tutor, ¿qué deseas enseñar hoy?
+                Bienvenido {JSON.parse(localStorage.user).name.split(' ')[0]}, ¿qué deseas enseñar hoy?
               </h1>
               <Link to="/tutor">
                 <button className="try-btn">Ir a mi Area</button>
