@@ -75,6 +75,13 @@
     background-color: #509198;
   }
   
+.usuario-chat h4{
+    /*white bold font*/
+      font-weight: bold;
+      color: var(--light);
+      font-size: 16px;
+      
+  }
   
   .chat-box{
     margin: auto;
@@ -84,7 +91,7 @@
 
 
   #chat-box-mensajes{
-    font: 16px/1.5 sans-serif;
+    font: 18px/1.5 sans-serif;
   display: flexbox;
     padding: 10px 10px 0px 10px;
     width: 100%;
@@ -101,20 +108,29 @@
   }
 
   .msg.enviado{
-    border-radius: var(--rad) var(--rad-sm) var(--rad-sm) var(--rad);
-    background: #42a5f5;
+    border-radius: var(--rad) var(--rad) var(--rad-sm) var(--rad);
+    background: #94b43b;
     color: #fff;
     /* moves it to the right */
     margin-left: auto;
   }
 
   .msg.recibido{
-    border-radius: var(--rad-sm) var(--rad) var(--rad) var(--rad-sm);
+    border-radius: var(--rad) var(--rad) var(--rad) var(--rad-sm);
   background: #f1f1f1;
   color: #555;
   /* moves it to the left */
   margin-right: auto;
     }
+
+    .msg.aviso{
+      border-radius: var(--rad) var(--rad) var(--rad) var(--rad-sm);
+    background: #dd891c;
+    font-weight: bolder;
+    color: rgb(80, 57, 8);
+    /* moves it to the left */
+    margin-right: auto;
+      }
   
   .chat-box-input{
     margin: 22px 20px 0px 5px;

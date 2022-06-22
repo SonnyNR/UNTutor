@@ -49,7 +49,7 @@ const options = {
 class TopicCarrousel extends Component {
   render() {
     return (
-      <div className="carousel-container">
+      <div className="carousel-container" >
         <OwlCarousel className="slider-items owl-carousel" {...options}>
         <Link to={'/sesion'}><div class="item">
             <img src={eq_dif} /> <h4>Ecuaciones diferenciales</h4>
@@ -57,7 +57,7 @@ class TopicCarrousel extends Component {
         <Link to={'/sesion'}><div class="item">
             <img src={alg_lin} /> <h4>Algebra Lineal</h4>
           </div></Link>
-        <Link to={'/sesion'}><div class="item">
+        <Link to={'/sesion'}><div class="item" >
             <img src={mat_bas} /> <h4>Matemáticas básicas</h4>
           </div></Link>
         <Link to={'/sesion'}><div class="item">
